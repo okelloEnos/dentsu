@@ -53,7 +53,7 @@
 //         title: Text(
 //           'Choose',
 //           style: TextStyle(
-//               fontFamily: 'Montserrat', color: theme.colorScheme.primary, fontWeight: FontWeight.bold),
+//               fontFamily: 'Dm Sans', color: theme.colorScheme.primary, fontWeight: FontWeight.bold),
 //         ),
 //         content: SizedBox(
 //           height: 150,
@@ -71,7 +71,7 @@
 //                   },
 //                   child: Text(
 //                     'Take Photo',
-//                     style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary),
+//                     style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary),
 //                   )),
 //               const Divider(),
 //               TextButton(
@@ -83,7 +83,7 @@
 //                     }
 //                   },
 //                   child: Text('Select From Gallery',
-//                       style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary))),
+//                       style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary))),
 //               const Divider(),
 //             ],
 //           ),

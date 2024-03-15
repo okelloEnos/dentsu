@@ -13,7 +13,7 @@ class SubmissionProgress extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(submissionText, style: TextStyle(fontSize: 16, color: theme.colorScheme.primary,
-              fontFamily: 'Montserrat'),),
+              fontFamily: 'Dm Sans'),),
           const SizedBox(height: 5.0,),
           const LinearProgressIndicator(),
         ],

@@ -24,7 +24,7 @@ var theme = Theme.of(context);
           child: Image.asset("assets/images/warning.png", fit: BoxFit.contain, height: 50, width: 50,),
         )),
     title: Text(title,
-      style: TextStyle(color: theme.colorScheme.tertiary, fontFamily: 'Montserrat', fontWeight: FontWeight.bold, fontSize: 18.0),),
+      style: TextStyle(color: theme.colorScheme.tertiary, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold, fontSize: 18.0),),
     content: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -34,7 +34,7 @@ var theme = Theme.of(context);
           Text(
             description,
             textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.grey, fontFamily: 'Montserrat', fontSize: 16.0),
+            style: const TextStyle(color: Colors.grey, fontFamily: 'Dm Sans', fontSize: 16.0),
           ),
           const SizedBox(height: 40.0,),
           Row(
@@ -54,7 +54,7 @@ var theme = Theme.of(context);
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
-                              fontFamily: 'Montserrat')
+                              fontFamily: 'Dm Sans')
                       ),
                     ),
                   ),
@@ -76,7 +76,7 @@ var theme = Theme.of(context);
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
-                              fontFamily: 'Montserrat')
+                              fontFamily: 'Dm Sans')
                       ),
                     ),
                   ),
@@ -104,7 +104,7 @@ var theme = Theme.of(context);
     //                 color: Colors.white,
     //                 fontWeight: FontWeight.bold,
     //                 fontSize: 20,
-    //                 fontFamily: 'Montserrat')
+    //                 fontFamily: 'Dm Sans')
     //         ),
     //       ),
     //     ),
@@ -124,7 +124,7 @@ var theme = Theme.of(context);
     //                 color: Colors.white,
     //                 fontWeight: FontWeight.bold,
     //                 fontSize: 20,
-    //                 fontFamily: 'Montserrat')
+    //                 fontFamily: 'Dm Sans')
     //         ),
     //       ),
     //     ),

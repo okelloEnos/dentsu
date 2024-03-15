@@ -10,8 +10,8 @@
 //     builder: (BuildContext context) {
 //
 //       return AlertDialog(
-//         title: Center(child: Text(title, style: const TextStyle(fontFamily: 'Montserrat', fontSize: 20.0, color: colorPrimaryDark),)),
-//         content: Text( description,  style: const TextStyle(fontFamily: 'Montserrat', fontSize: 16.0, color: colorPrimaryDark),),
+//         title: Center(child: Text(title, style: const TextStyle(fontFamily: 'Dm Sans', fontSize: 20.0, color: colorPrimaryDark),)),
+//         content: Text( description,  style: const TextStyle(fontFamily: 'Dm Sans', fontSize: 16.0, color: colorPrimaryDark),),
 //       );
 //     },
 //     animationType: DialogTransitionType.slideFromTop,
@@ -27,8 +27,8 @@
 //     builder: (BuildContext context) {
 //
 //       return AlertDialog(
-//         title: Center(child: Text(title, style: const TextStyle(fontFamily: 'Montserrat', fontSize: 20.0, color: colorPrimaryDark, fontWeight: FontWeight.bold),)),
-//         content: const Text("coming_soon_text",  style: TextStyle(fontFamily: 'Montserrat', fontSize: 16.0, color: colorPrimaryDark),),
+//         title: Center(child: Text(title, style: const TextStyle(fontFamily: 'Dm Sans', fontSize: 20.0, color: colorPrimaryDark, fontWeight: FontWeight.bold),)),
+//         content: const Text("coming_soon_text",  style: TextStyle(fontFamily: 'Dm Sans', fontSize: 16.0, color: colorPrimaryDark),),
 //       );
 //     },
 //     animationType: DialogTransitionType.slideFromBottom,
@@ -44,7 +44,7 @@
 //     builder: (BuildContext context) {
 //       return
 //         SimpleDialog(
-//           title: const Center(child: Text("submission_failed_text", style: TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold),)),
+//           title: const Center(child: Text("submission_failed_text", style: TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold),)),
 //             contentPadding: const EdgeInsets.all(8.0),
 //             children: [
 //               const Divider(),
@@ -59,7 +59,7 @@
 //                   child: Text(
 //                     'Reason',
 //                     textAlign: TextAlign.start,
-//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold, fontSize: 16.0),
+//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold, fontSize: 16.0),
 //                   ),
 //                 ),
 //               ),
@@ -70,7 +70,7 @@
 //         child: Text(
 //         description,
 //         textAlign: TextAlign.center,
-//         style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontSize: 15.0),
+//         style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontSize: 15.0),
 //         ),
 //         ),
 //       ),
@@ -91,7 +91,7 @@
 //     builder: (BuildContext context) {
 //       return
 //         SimpleDialog(
-//             title: Center(child: Text(title, style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold),)),
+//             title: Center(child: Text(title, style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold),)),
 //             contentPadding: const EdgeInsets.all(8.0),
 //             children: [
 //               const Divider(),
@@ -106,7 +106,7 @@
 //                   child: Text(
 //                     'Reason',
 //                     textAlign: TextAlign.center,
-//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold, fontSize: 16.0),
+//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold, fontSize: 16.0),
 //                   ),
 //                 ),
 //               ),
@@ -117,7 +117,7 @@
 //                   child: Text(
 //                     description,
 //                     textAlign: TextAlign.start,
-//                     style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontSize: 15.0),
+//                     style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontSize: 15.0),
 //                   ),
 //                 ),
 //               ),
@@ -139,7 +139,7 @@
 //     builder: (BuildContext context) {
 //       return
 //         SimpleDialog(
-//             title: Center(child: Text(title, style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold),)),
+//             title: Center(child: Text(title, style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold),)),
 //             contentPadding: const EdgeInsets.all(8.0),
 //             children: [
 //               const Divider(),
@@ -154,7 +154,7 @@
 //                   child: Text(
 //                     'Information',
 //                     textAlign: TextAlign.center,
-//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontWeight: FontWeight.bold, fontSize: 16.0),
+//                     style: TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontWeight: FontWeight.bold, fontSize: 16.0),
 //                   ),
 //                 ),
 //               ),
@@ -165,7 +165,7 @@
 //                   child: Text(
 //                     description,
 //                     textAlign: TextAlign.start,
-//                     style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Montserrat', fontSize: 15.0),
+//                     style: const TextStyle(color: colorPrimaryDark, fontFamily: 'Dm Sans', fontSize: 15.0),
 //                   ),
 //                 ),
 //               ),
@@ -189,7 +189,7 @@
 //                                 'Continue',
 //                                 style: TextStyle(
 //                                     fontSize: 18.0,
-//                                     fontFamily: 'Montserrat',
+//                                     fontFamily: 'Dm Sans',
 //                                     color: colorWhite),
 //                               ),
 //                             ],

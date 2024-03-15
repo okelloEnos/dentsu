@@ -89,7 +89,7 @@ class CustomDropdownWidgetState extends State<CustomDropdownWidget> {
                     color: theme.colorScheme.primary,
                     fontWeight: FontWeight.w500,
                     fontSize: 16.0,
-                    fontFamily: 'Montserrat'),),
+                    fontFamily: 'Dm Sans'),),
               );
             }).toList(),
             onChanged: (widget.isDisabled ?? false) ? null : (String? value){
@@ -197,7 +197,7 @@ class CustomDropdownWidgetState extends State<CustomDropdownWidget> {
 //                     color: theme.colorScheme.primary,
 //                     fontWeight: FontWeight.w500,
 //                     fontSize: 16.0,
-//                     fontFamily: 'Montserrat'),),
+//                     fontFamily: 'Dm Sans'),),
 //               );
 //             }).toList(),
 //             onChanged: (widget.isDisabled ?? false) ? null : (String? value){

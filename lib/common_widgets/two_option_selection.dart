@@ -30,7 +30,7 @@ class TwoOptionSelection extends StatelessWidget {
               style: TextStyle( fontWeight: FontWeight.normal,
                 fontSize: 16,
                 color: theme.colorScheme.primary,
-                fontFamily: 'Montserrat',),),
+                fontFamily: 'Dm Sans',),),
             const SizedBox(height: 10.0,),
             (isVertical ?? false) ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ class TwoOptionSelection extends StatelessWidget {
                 ListTile(
                   horizontalTitleGap: 0.0,
                   title: Text(optionOne ?? 'Yes',
-                    style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
+                    style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
                   leading: Radio(
                     // overlayColor: MaterialStateProperty.all(theme.colorScheme.primary),
                     value: true,
@@ -51,7 +51,7 @@ class TwoOptionSelection extends StatelessWidget {
                 ListTile(
                   horizontalTitleGap: 0.0,
                   title: Text(optionTwo ?? 'No',
-                    style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
+                    style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
                   leading: Radio(
                     value: false,
                     groupValue: selectedOption,
@@ -70,7 +70,7 @@ class TwoOptionSelection extends StatelessWidget {
                   child: ListTile(
                     horizontalTitleGap: 0.0,
                     title: Text(optionOne ?? 'Yes',
-                      style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
+                      style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
                     leading: Radio(
                       value: true,
                       groupValue: selectedOption,
@@ -84,7 +84,7 @@ class TwoOptionSelection extends StatelessWidget {
                   child: ListTile(
                     horizontalTitleGap: 0.0,
                     title: Text(optionTwo ?? 'No',
-                      style: TextStyle(fontFamily: 'Montserrat', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
+                      style: TextStyle(fontFamily: 'Dm Sans', color: theme.colorScheme.primary, fontSize: 18, fontWeight: FontWeight.w600),),
                     leading: Radio(
                       value: false,
                       groupValue: selectedOption,

@@ -7,34 +7,19 @@ class CustomElevatedButton extends StatelessWidget {
   final Color? btnColor;
   final Color? textColor;
   final double? textFontSize;
-  final bool? withIcon;
-  final Widget? icon;
+final FontWeight? fontWeight;
   final double? radius;
 
   const CustomElevatedButton({Key? key, required this.btnText, required this.onPressed, this.btnColor,
-  this.textColor, this.textFontSize, this.withIcon, this.icon, this.radius}) : super(key: key);
+  this.textColor, this.textFontSize, this.radius, this.fontWeight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    return  (withIcon != null && withIcon!) ? ElevatedButton.icon(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: btnColor ?? theme.colorScheme.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius ?? 4),
-        ),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-      ),
-      icon: icon ?? const Icon(Icons.add, size: 20, color: Colors.white,),
-      label: Text(btnText,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Montserrat", color: textColor ?? Colors.white),),
-    ) : ElevatedButton(
+    return  ElevatedButton(
         onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
+        foregroundColor: textColor ?? theme.colorScheme.onPrimary,
         backgroundColor: btnColor ?? theme.colorScheme.primary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius ?? 4),
@@ -47,7 +32,7 @@ class CustomElevatedButton extends StatelessWidget {
             Expanded(
               child: Text(btnText,
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Montserrat", color: textColor ?? Colors.white),),
+      style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Dm Sans", color: textColor ?? theme.colorScheme.onPrimary, fontWeight: fontWeight ?? FontWeight.normal),),
             ),
           ],
         ),

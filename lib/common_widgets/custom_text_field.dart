@@ -55,11 +55,10 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxLines ?? 1,
       style: TextStyle(
           color: color ?? theme.colorScheme.primary,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
           fontSize: fontSize ?? 16.0,
-          fontFamily: 'Montserrat'),
+          fontFamily: 'Dm Sans'),
       decoration: InputDecoration(
-        // contentPadding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
         prefixIcon: prefixIcon != null ? Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 2.0, bottom: 2.0),
           child: prefixIcon,
@@ -69,13 +68,13 @@ class CustomTextField extends StatelessWidget {
           child: suffixIcon,
         ) : null,
         filled: true,
-        fillColor: (color ?? theme.colorScheme.primary).withOpacity(0.1),
+        fillColor: color ?? theme.colorScheme.primary,
         hintText: hintText,
         hintStyle: TextStyle(
-            color: Colors.grey.shade400,
-            fontWeight: FontWeight.normal,
+            color: theme.hintColor,
+            fontWeight: FontWeight.w400,
             fontSize: hintFontSize ?? 16.0,
-            fontFamily: 'Montserrat'),
+            fontFamily: 'Dm Sans'),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
             borderSide: BorderSide(

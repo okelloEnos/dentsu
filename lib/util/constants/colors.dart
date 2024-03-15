@@ -15,7 +15,7 @@ const Color inactiveWhiteColor = Color(0xFFD0CDCE);
 const Color inactiveBlackColor = Color(0xFFDFDEDE);
 // indicator background color
 const Color indicatorBackgroundColor = Color(0xFFFFE5D3);
-const Color white = Color(0xFFFFE5D3);
+const Color white = Color(0xFFFFFFFF);
 const Color black = Color(0xFF000000);
 
 
