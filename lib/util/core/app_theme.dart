@@ -36,11 +36,15 @@ class AppTheme {
         cardTheme: CardTheme(
             margin: EdgeInsets.zero,
             color: white,
-            elevation: 2.0,
+            elevation: 0.0,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0))),
-        bottomNavigationBarTheme:
-            const BottomNavigationBarThemeData(backgroundColor: white),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                backgroundColor: white,
+            showSelectedLabels: false,
+              unselectedItemColor: inactiveGreyColor,
+          selectedItemColor: lightPrimaryColor,
+            ),
         snackBarTheme: const SnackBarThemeData(
             backgroundColor: darkPrimaryColor,
             contentTextStyle: TextStyle(

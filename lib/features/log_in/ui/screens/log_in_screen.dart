@@ -115,7 +115,6 @@ class _LogInScreenState extends State<LogInScreen> {
                   Center(
                     child: CustomTextWidget(text:"A tool that leverage's the power of data and artificial intelligence to drive digital transformation at scale", textAlign: TextAlign.center,
                         color: theme.colorScheme.onPrimary,
-                        fontFamily: "Dm Sans",
                         fontWeight: FontWeight.w400,),
                   ),
                    Padding(
@@ -199,6 +198,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             fontWeight: FontWeight.bold,
                             radius: 90.0,
                             onPressed: () {
+                              context.goNamed('dashboard');
                               // context.read<LogInBloc>().add(LogInPressedEvent(
                               //     phoneNumber: phoneNumberController.text,
                               //     pin: passwordController.text));
@@ -214,7 +214,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         //     isConnected: context.read<NetworkBloc>().state == NetworkStatus.on
                         // ));
                         // context.read<RenumerationCubit>().fetchRenumerations();
-                        context.goNamed('home');
+                        context.goNamed('dashboard');
                       } else if (state is LogInFailure) {
                         showErrorDialog(
                             context: context,

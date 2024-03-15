@@ -80,9 +80,9 @@ final GoRouter appRouter = GoRouter(
       pageBuilder: (context, state) => pageBuilderWithTransition(
           context: context,
           state: state,
-          duration: 2000,
+          duration: 1000,
           transitionType: PageTransitionType.bottomToTop,
-          child: const DashboardScreen()),
+          child: const DashboardNavigationController()),
       routes: const [
         // GoRoute(
         //   path: 'change_pin',

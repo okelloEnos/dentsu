@@ -9,8 +9,9 @@ const Color lightBlackColor = Color(0xFF2D2D2D);
 const Color darkGreyColor = Color(0xFF666666);
 const Color dividerColor = Color(0xFFC4C4C4);
 const Color alternativeGradientColor = Color(0xFF5ABEA6);
+const Color creditColor = Color(0xFF387EA1);
 const Color lightGreyColor = Color(0xFF333333);
-const Color inactiveWhiteColor = Color(0xFFD0CDCE);
+const Color inactiveGreyColor = Color(0xFFD0CDCE);
 // dotted border color
 const Color inactiveBlackColor = Color(0xFFDFDEDE);
 // indicator background color
