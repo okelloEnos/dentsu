@@ -35,7 +35,10 @@ class DashboardScreen extends StatelessWidget {
                 color: theme.colorScheme.tertiary.withOpacity(0.8),
               ),
               const SizedBox(height: 10.0),
-              const NewLeads()
+              const Padding(
+                padding: EdgeInsets.only(right: 10.0),
+                child: NewLeads(),
+              )
             ],
           ),
         ),

@@ -45,6 +45,25 @@ class AppTheme {
               unselectedItemColor: inactiveGreyColor,
           selectedItemColor: lightPrimaryColor,
             ),
+        dataTableTheme: DataTableThemeData(
+            dataTextStyle: const TextStyle(
+                color: black,
+                fontSize: 14.0,
+                fontFamily: "DM Sans",
+                fontWeight: FontWeight.w400),
+            headingTextStyle: TextStyle(
+                color: black.withOpacity(0.8),
+                fontSize: 20.0,
+                fontWeight: FontWeight.w400,
+                fontFamily: "DM Sans"),
+          dividerThickness: 0.0,
+          dataRowColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.selected)) {
+              return const Color(0XFFFAF8F8);
+            }
+            return white;
+          }),
+        ),
         snackBarTheme: const SnackBarThemeData(
             backgroundColor: darkPrimaryColor,
             contentTextStyle: TextStyle(
