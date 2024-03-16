@@ -26,7 +26,7 @@ class DashboardScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10.0),
               const SizedBox(
-                  height: 270.0,
+                  height: 280.0,
                   child: DashboardStats()),
               const SizedBox(height: 20.0),
               CustomTextWidget(text: "New Leads",

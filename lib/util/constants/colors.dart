@@ -18,6 +18,12 @@ const Color inactiveBlackColor = Color(0xFFDFDEDE);
 const Color indicatorBackgroundColor = Color(0xFFFFE5D3);
 const Color white = Color(0xFFFFFFFF);
 const Color black = Color(0xFF000000);
+const Color mortgageBackgroundColor = Color(0xFFE5D0F0);
+const Color extraAccountActiveColor = Color(0xFF4339F2);
+const Color extraAccountBackgroundColor = Color(0xFFDAD7FE);
+const Color motorInsuranceActiveColor = Color(0xFF02A0FC);
+const Color motorInsuranceBackgroundColor = Color(0xFFCCE2EE);
+const Color creditBackgroundColor = Color(0xFFDFFBF3);
 
 
 

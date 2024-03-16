@@ -6,3 +6,7 @@ export 'ui/widget/graph_leads_stat.dart';
 export 'ui/widget/total_lead_progress_bar.dart';
 export 'ui/widget/requests_stats.dart';
 export 'ui/widget/top_products_stats.dart';
+export 'ui/widget/lead_graph_chart.dart';
+export 'data/model/lead_analytics.dart';
+export 'ui/widget/requests_pie_chart.dart';
+export 'ui/widget/top_products.dart';

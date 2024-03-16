@@ -11,19 +11,19 @@ class DashboardStats extends StatelessWidget {
       shrinkWrap: true,
       children: const [
         SizedBox(
-            width: 230.0,
+            width: 240.0,
             child: TotalLeadsStatCard()),
         SizedBox(width: 20,),
         SizedBox(
-            width: 230.0,
+            width: 240.0,
             child: GraphLeadsStat()),
         SizedBox(width: 20,),
         SizedBox(
-            width: 230.0,
+            width: 240.0,
             child: RequestsStats()),
         SizedBox(width: 20,),
         SizedBox(
-            width: 230.0,
+            width: 240.0,
             child: TopProductsStats()),
       ],
     );

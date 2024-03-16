@@ -1,3 +1,4 @@
+import 'package:dentsu_test/features/dashboard/ui/widget/requests_pie_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common_widgets/common_widget_barrel.dart';
@@ -30,11 +31,11 @@ class RequestsStats extends StatelessWidget {
                 Icon(Icons.more_horiz, color: theme.hintColor.withOpacity(0.5))
               ],
             ),
-            const SizedBox(height: 30.0),
-            const Center(child: TotalLeadProgressBar(totalLeads: 100, contactedLeads: 70)),
+            const SizedBox(height: 20.0),
+            const Center(child: RequestsPieChart()),
             const SizedBox(height: 30.0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -50,21 +51,13 @@ class RequestsStats extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 4.0),
-                    RichText(text: TextSpan(text: "Contacted ", style: TextStyle(
+                    CustomTextWidget(text: "Accounts",
                       fontSize: 12.0,
                       fontWeight: FontWeight.w400,
                       color: theme.colorScheme.tertiary,
-                      fontFamily: "DM Sans",
-                    ), children: [
-                      TextSpan(text: "1.7K", style:
-                      TextStyle(     fontSize: 12.0,
-                        fontWeight: FontWeight.w700,
-                        color: theme.colorScheme.tertiary,
-                        fontFamily: "DM Sans",))
-                    ]))
+                    ),
                   ],
                 ),
-                // Sized
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,24 +68,39 @@ class RequestsStats extends StatelessWidget {
                       width: 10.0,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: indicatorBackgroundColor,
+                        color: alternativeGradientColor,
                       ),
                     ),
                     const SizedBox(width: 4.0),
-                    RichText(text: TextSpan(text: "Total Leads ", style: TextStyle(
+                    CustomTextWidget(text: "Insurance",
                       fontSize: 12.0,
                       fontWeight: FontWeight.w400,
                       color: theme.colorScheme.tertiary,
-                      fontFamily: "DM Sans",
-                    ), children: [
-                      TextSpan(text: "2.73K", style:
-                      TextStyle(     fontSize: 12.0,
-                        fontWeight: FontWeight.w700,
-                        color: theme.colorScheme.tertiary,
-                        fontFamily: "DM Sans",))
-                    ]))
+                    ),
                   ],
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      height: 10.0,
+                      width: 10.0,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: creditColor,
+                      ),
+                    ),
+                    const SizedBox(width: 4.0),
+                    CustomTextWidget(text: "Credit",
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w400,
+                      color: theme.colorScheme.tertiary,
+                    ),
+                  ],
+                ),
+
               ],
             ),
           ],

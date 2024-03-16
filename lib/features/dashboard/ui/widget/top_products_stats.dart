@@ -14,9 +14,10 @@ class TopProductsStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    double totalRequests = 150000;
     return Card(
       child: Padding(
-        padding: const EdgeInsets.only(left: 4.0, right: 4.0, top: 8.0, bottom: 8.0),
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 8.0, bottom: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
@@ -32,70 +33,42 @@ class TopProductsStats extends StatelessWidget {
                 Icon(Icons.more_horiz, color: theme.hintColor.withOpacity(0.5))
               ],
             ),
+            CustomTextWidget(text: "Every large design company whether it’s a multi-national branding.",
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              color: theme.colorScheme.tertiary.withOpacity(0.4),
+            ),
             const SizedBox(height: 30.0),
-            const Center(child: TotalLeadProgressBar(totalLeads: 100, contactedLeads: 70)),
-            const SizedBox(height: 30.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      height: 10.0,
-                      width: 10.0,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                    const SizedBox(width: 4.0),
-                    RichText(text: TextSpan(text: "Contacted ", style: TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w400,
-                      color: theme.colorScheme.tertiary,
-                      fontFamily: "DM Sans",
-                    ), children: [
-                      TextSpan(text: "1.7K", style:
-                      TextStyle(     fontSize: 12.0,
-                        fontWeight: FontWeight.w700,
-                        color: theme.colorScheme.tertiary,
-                        fontFamily: "DM Sans",))
-                    ]))
-                  ],
-                ),
-                // Sized
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      height: 10.0,
-                      width: 10.0,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: indicatorBackgroundColor,
-                      ),
-                    ),
-                    const SizedBox(width: 4.0),
-                    RichText(text: TextSpan(text: "Total Leads ", style: TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w400,
-                      color: theme.colorScheme.tertiary,
-                      fontFamily: "DM Sans",
-                    ), children: [
-                      TextSpan(text: "2.73K", style:
-                      TextStyle(     fontSize: 12.0,
-                        fontWeight: FontWeight.w700,
-                        color: theme.colorScheme.tertiary,
-                        fontFamily: "DM Sans",))
-                    ]))
-                  ],
-                ),
-              ],
+           TopProducts(
+             totalRequests: totalRequests,
+              numberOfRequests: 65376,
+             title: "Mortgage",
+              backgroundColor: mortgageBackgroundColor,
+              activeColor: theme.colorScheme.secondary,
+           ),
+            const SizedBox(height: 20.0),
+            TopProducts(
+              totalRequests: totalRequests,
+              numberOfRequests: 12109,
+              title: "One Xtra Account",
+              backgroundColor: extraAccountBackgroundColor,
+              activeColor: extraAccountActiveColor,
+            ),
+            const SizedBox(height: 20.0),
+             TopProducts(
+              totalRequests: totalRequests,
+              numberOfRequests: 132645,
+              title: "Motor Insurance",
+              backgroundColor: motorInsuranceBackgroundColor,
+              activeColor: motorInsuranceActiveColor,
+            ),
+            const SizedBox(height: 20.0),
+            TopProducts(
+              totalRequests: totalRequests,
+              numberOfRequests: 100429,
+              title: "Credit Cards",
+              backgroundColor: creditBackgroundColor,
+              activeColor: alternativeGradientColor,
             ),
           ],
         ),
