@@ -29,11 +29,9 @@ final FontWeight? fontWeight;
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Text(btnText,
+            Text(btnText,
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Dm Sans", color: textColor ?? theme.colorScheme.onPrimary, fontWeight: fontWeight ?? FontWeight.normal),),
-            ),
           ],
         ),
     );
