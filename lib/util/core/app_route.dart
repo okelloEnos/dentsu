@@ -1,3 +1,5 @@
+import 'package:dentsu_test/features/leads/ui/screens/add_new_lead.dart';
+import 'package:dentsu_test/features/leads/ui/screens/view_lead_details.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../common_widgets/common_widget_barrel.dart';
@@ -83,17 +85,27 @@ final GoRouter appRouter = GoRouter(
           duration: 1000,
           transitionType: PageTransitionType.bottomToTop,
           child: const DashboardNavigationController()),
-      routes: const [
-        // GoRoute(
-        //   path: 'change_pin',
-        //   name: 'change_pin',
-        //   pageBuilder: (context, state) => pageBuilderWithTransition(
-        //       context: context,
-        //       state: state,
-        //       duration: pageTransitionValue,
-        //       transitionType: PageTransitionType.rightToLeft,
-        //       child: const ChangePinScreen()),
-        // ),
+      routes: [
+        GoRoute(
+          path: 'view_lead',
+          name: 'view_lead',
+          pageBuilder: (context, state) => pageBuilderWithTransition(
+              context: context,
+              state: state,
+              duration: pageTransitionValue,
+              transitionType: PageTransitionType.rightToLeft,
+              child: const ViewLeadDetailsScreen()),
+        ),
+        GoRoute(
+          path: 'add_lead',
+          name: 'add_lead',
+          pageBuilder: (context, state) => pageBuilderWithTransition(
+              context: context,
+              state: state,
+              duration: pageTransitionValue,
+              transitionType: PageTransitionType.rightToLeft,
+              child: const AddNewLeadScreen()),
+        ),
       ]
     ),
   ],

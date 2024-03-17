@@ -40,7 +40,7 @@ class DashboardNavigationControllerState extends State {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: UserPhoto(userProfilePhoto: imageUrl),
+            child: UserPhoto(userProfilePhoto: imageUrl, isOnline: true,),
           ),
           IconButton(
             icon: Icon(Icons.search, color: theme.colorScheme.onPrimary, size: 30.0,),

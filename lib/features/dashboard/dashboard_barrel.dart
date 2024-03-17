@@ -10,3 +10,4 @@ export 'ui/widget/lead_graph_chart.dart';
 export 'data/model/lead_analytics.dart';
 export 'ui/widget/requests_pie_chart.dart';
 export 'ui/widget/top_products.dart';
+export 'ui/widget/app_bar.dart';

@@ -31,7 +31,7 @@ final FontWeight? fontWeight;
           children: [
             Text(btnText,
       textAlign: TextAlign.center,
-      style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Dm Sans", color: textColor ?? theme.colorScheme.onPrimary, fontWeight: fontWeight ?? FontWeight.normal),),
+      style: TextStyle(fontSize: textFontSize ?? 18, fontFamily: "Dm Sans", color: textColor ?? theme.colorScheme.onPrimary, fontWeight: fontWeight ?? FontWeight.w400),),
           ],
         ),
     );

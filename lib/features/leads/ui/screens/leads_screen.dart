@@ -1,6 +1,7 @@
 import 'package:dentsu_test/common_widgets/common_widget_barrel.dart';
 import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LeadsScreen extends StatelessWidget {
   const LeadsScreen({super.key});
@@ -30,7 +31,9 @@ class LeadsScreen extends StatelessWidget {
                     children: [
                       CustomElevatedButton(
                         btnText: "+  New lead",
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go('/dashboard/add_lead');
+                        },
                         btnColor: theme.colorScheme.secondary,
                         textColor: theme.colorScheme.onTertiary,
                         fontWeight: FontWeight.w400,

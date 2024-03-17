@@ -1,7 +1,7 @@
 import 'package:dentsu_test/common_widgets/common_widget_barrel.dart';
 import 'package:dentsu_test/features/features_barrel.dart';
-import 'package:dentsu_test/features/leads/ui/widgets/pagination_footer.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../util/constants/constants_barrel.dart';
 final List<Lead> _leads = [
@@ -18,7 +18,7 @@ final List<Lead> _leads = [
   Lead(id: "11", name: "Peter"),
   Lead(id: "12", name: "Peter"),
 ];
-final DataTableSource dataSource = LeadsDataSource(leads: _leads);
+// final DataTableSource dataSource = LeadsDataSource(leads: _leads);
 class NewLeads extends StatelessWidget {
   const NewLeads({super.key});
 
@@ -55,8 +55,13 @@ class NewLeads extends StatelessWidget {
               DataColumn(
                 label: CustomTextWidget(text: "Customer Name", fontSize: 14.0, fontWeight: FontWeight.w400, color: theme.colorScheme.tertiary,),
               ),
+              DataColumn(
+                label: CustomTextWidget(text: "", fontSize: 14.0, fontWeight: FontWeight.w400, color: theme.colorScheme.tertiary,),
+              ),
             ],
-            source: dataSource,
+            source: LeadsDataSource(leads: _leads, onRowTap: (leadIndex){
+              context.go('/dashboard/view_lead');
+            }),
           ),
         ),
         Positioned(
@@ -94,8 +99,9 @@ class NewLeads extends StatelessWidget {
 
 class LeadsDataSource extends DataTableSource {
   final List<Lead> leads ;
+  final Function(int) onRowTap;
 
-  LeadsDataSource({Key? key, required this.leads});
+  LeadsDataSource({Key? key, required this.leads, required this.onRowTap});
 
   @override
   int get rowCount => leads.length;
@@ -117,6 +123,12 @@ class LeadsDataSource extends DataTableSource {
             fontFamily: "DM Sans",
             fontWeight: FontWeight.w400
         )),
+        DataCell(
+            const Icon(Icons.remove_red_eye_outlined, color: lightPrimaryColor, size: 20.0,),
+          onTap: (){
+            onRowTap(index);
+          },
+        ),
       ],
     );
   }

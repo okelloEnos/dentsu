@@ -5,7 +5,8 @@ import 'common_widget_barrel.dart';
 
 class UserPhoto extends StatelessWidget {
   final String? userProfilePhoto;
-  const UserPhoto({super.key, this.userProfilePhoto});
+  final bool? isOnline;
+  const UserPhoto({Key? key, this.userProfilePhoto, this.isOnline}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class UserPhoto extends StatelessWidget {
           height: 40.0,
           width: 40.0,
         ),
-        Positioned(
+        (isOnline ?? false) ? Positioned(
           bottom: 0.0,
           right: 0.0,
           child: Container(
@@ -65,7 +66,7 @@ class UserPhoto extends StatelessWidget {
               color: Colors.green,
             ),
           ),
-        )
+        ) : const SizedBox.shrink(),
       ],
     );
   }

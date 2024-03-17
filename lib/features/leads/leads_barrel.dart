@@ -2,3 +2,8 @@ export 'ui/screens/leads_screen.dart';
 export 'ui/widgets/new_leads.dart';
 export 'data/model/lead.dart';
 export 'ui/widgets/pagination_footer.dart';
+export 'ui/widgets/lead_more_detail_card.dart';
+export 'ui/widgets/lead_detail_card.dart';
+export 'ui/widgets/lead_data_widget.dart';
+export 'ui/widgets/assigned_lead_section.dart';
+export 'ui/widgets/lead_detail_section.dart';
