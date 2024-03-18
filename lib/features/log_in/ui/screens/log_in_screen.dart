@@ -3,7 +3,6 @@ import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dentsu_test/common_widgets/page_builder.dart';
-
 import '../../../../../common_widgets/common_widget_barrel.dart';
 import '../../login_barrel.dart';
 
@@ -195,8 +194,9 @@ class _LogInScreenState extends State<LogInScreen> {
                             btnText: "Log In",
                             btnColor: theme.colorScheme.onPrimary,
                             textColor: theme.colorScheme.tertiary,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w700,
                             radius: 90.0,
+                            textFontSize: 16.0,
                             onPressed: () {
                               context.goNamed('dashboard');
                               // context.read<LogInBloc>().add(LogInPressedEvent(

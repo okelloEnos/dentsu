@@ -37,7 +37,7 @@ class DashboardNavigationControllerState extends State {
       appBar: AppBar(
         title: Image.asset("assets/images/logo.png",
           height: 40.0, width: 40.0, color: theme.colorScheme.onPrimary,),
-        actions: [
+        actions: _selectedTab == 3 ? [] : [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
             child: UserPhoto(userProfilePhoto: imageUrl, isOnline: true,),
