@@ -4,13 +4,11 @@ import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../util/constants/constants_barrel.dart';
 final List<Quote> _quotes = [
-  Quote(text: "text1", author: "ENOS1"),
-  Quote(text: "text2", author: "ENOS2"),
-  Quote(text: "text3", author: "ENOS3"),
-  Quote(text: "text4", author: "ENOS4"),
-  Quote(text: "text5", author: "ENOS5"),
+  Quote(clientFirstName: "John", clientMiddleName: "Sam", clientLastName: "Derrick",),
+  Quote(clientFirstName: "John1", clientMiddleName: "Sam1", clientLastName: "Derrick1",),
+  Quote(clientFirstName: "John2", clientMiddleName: "Sam2", clientLastName: "Derrick2",),
+  Quote(clientFirstName: "John3", clientMiddleName: "Sam3", clientLastName: "Derrick3",),
 ];
 
 class QuotesWidget extends StatelessWidget {
@@ -95,7 +93,7 @@ class QuotesDataSource extends DataTableSource {
             fontFamily: "DM Sans",
             fontWeight: FontWeight.w400
         )),
-        DataCell(CustomTextWidget(text: quotes[index].text ?? "",
+        DataCell(CustomTextWidget(text: "${quotes[index].clientFirstName} ${quotes[index].clientMiddleName} ${quotes[index].clientLastName}",
             color: black,
             fontSize: 14.0,
             fontFamily: "DM Sans",

@@ -5,18 +5,19 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../util/constants/constants_barrel.dart';
 final List<Lead> _leads = [
-  Lead(id: "1", name: "Sarah"),
-  Lead(id: "2", name:"John"),
-  Lead(id: "3", name: "James"),
-  Lead(id: "4", name: "Peter"),
-  Lead(id: "5", name: "Peter"),
-  Lead(id: "6", name: "Peter"),
-  Lead(id: "7", name: "Peter"),
-  Lead(id: "8", name: "Peter"),
-  Lead(id: "9", name: "Peter"),
-  Lead(id: "10", name: "Peter"),
-  Lead(id: "11", name: "Peter"),
-  Lead(id: "12", name: "Peter"),
+  Lead(id: "1", firstName: "John", middleName: "Sam", lastName: "Derrick",),
+  Lead(id: "2", firstName: "John1", middleName: "Sam1", lastName: "Derrick1",),
+  Lead(id: "3", firstName: "John2", middleName: "Sam2", lastName: "Derrick2",),
+  Lead(id: "4", firstName: "John3", middleName: "Sam3", lastName: "Derrick3",),
+  Lead(id: "5", firstName: "John4", middleName: "Sam4", lastName: "Derrick4",),
+  Lead(id: "6", firstName: "John5", middleName: "Sam5", lastName: "Derrick5",),
+  Lead(id: "7", firstName: "John6", middleName: "Sam6", lastName: "Derrick6",),
+  Lead(id: "8", firstName: "John7", middleName: "Sam7", lastName: "Derrick7",),
+  Lead(id: "9", firstName: "John8", middleName: "Sam8", lastName: "Derrick8",),
+  Lead(id: "10", firstName: "John9", middleName: "Sam9", lastName: "Derrick9",),
+  Lead(id: "11", firstName: "John10", middleName: "Sam10", lastName: "Derrick10",),
+  Lead(id: "12", firstName: "John11", middleName: "Sam11", lastName: "Derrick11",),
+  Lead(id: "13", firstName: "John12", middleName: "Sam12", lastName: "Derrick12",),
 ];
 // final DataTableSource dataSource = LeadsDataSource(leads: _leads);
 class NewLeads extends StatelessWidget {
@@ -117,7 +118,7 @@ class LeadsDataSource extends DataTableSource {
             fontFamily: "DM Sans",
             fontWeight: FontWeight.w400
         )),
-        DataCell(CustomTextWidget(text: leads[index].name ?? "",
+        DataCell(CustomTextWidget(text: "${leads[index].firstName} ${leads[index].middleName} ${leads[index].lastName}" ?? "",
             color: black,
             fontSize: 14.0,
             fontFamily: "DM Sans",
