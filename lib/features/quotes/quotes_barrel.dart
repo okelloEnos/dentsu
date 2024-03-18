@@ -1,1 +1,13 @@
 export 'ui/screens/quotes_screen.dart';
+export 'ui/widgets/quotes_widget.dart';
+export 'ui/screens/add_quote_screen.dart';
+export 'ui/screens/view_quote_screen.dart';
+export 'data/model/quote.dart';
+export 'ui/widgets/benefits.dart';
+export 'ui/widgets/quote_information.dart';
+export 'ui/widgets/set_up.dart';
+export 'ui/widgets/quote_data_content.dart';
+export 'ui/widgets/payment_section.dart';
+export 'ui/widgets/benefit_section.dart';
+export 'ui/widgets/custom_benefit_switch.dart';
+export 'ui/widgets/payment_mode.dart';

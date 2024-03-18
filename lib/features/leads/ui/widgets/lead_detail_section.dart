@@ -6,9 +6,11 @@ class LeadDetailSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: const Column(
+    return const SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           LeadDataWidget(
               title: "Lead Source",
@@ -29,6 +31,7 @@ class LeadDetailSection extends StatelessWidget {
           LeadDataWidget(
               title: "Recording Agent",
               data: "Khary Fagbure"),
+          SizedBox(height: 40.0),
         ],
       ),
     );

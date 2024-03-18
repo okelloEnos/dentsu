@@ -11,3 +11,4 @@ export 'circular_progress_spin_widget.dart';
 export 'back_arrow_widget.dart';
 export 'custom_switch_widget.dart';
 export 'background_image.dart';
+export 'view_detail_container.dart';

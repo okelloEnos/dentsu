@@ -106,6 +106,26 @@ final GoRouter appRouter = GoRouter(
               transitionType: PageTransitionType.rightToLeft,
               child: const AddNewLeadScreen()),
         ),
+        GoRoute(
+          path: 'view_quote',
+          name: 'view_quote',
+          pageBuilder: (context, state) => pageBuilderWithTransition(
+              context: context,
+              state: state,
+              duration: pageTransitionValue,
+              transitionType: PageTransitionType.rightToLeft,
+              child: const ViewQuoteScreen()),
+        ),
+        GoRoute(
+          path: 'add_quote',
+          name: 'add_quote',
+          pageBuilder: (context, state) => pageBuilderWithTransition(
+              context: context,
+              state: state,
+              duration: pageTransitionValue,
+              transitionType: PageTransitionType.rightToLeft,
+              child: const AddQuoteScreen()),
+        ),
       ]
     ),
   ],
