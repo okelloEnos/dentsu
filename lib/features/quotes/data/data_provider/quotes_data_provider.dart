@@ -10,6 +10,7 @@ class QuotesDataProvider{
   Future<void> createNewQuoteRequest({required Quote quote}) async {
     var newQuoteData = quote.toJson();
     await _database.ref().child('quotes').push().set(newQuoteData);
+    //todo: make a request for product records
   }
 
   // update quote

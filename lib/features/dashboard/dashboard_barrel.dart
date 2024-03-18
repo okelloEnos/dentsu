@@ -11,3 +11,7 @@ export 'data/model/lead_analytics.dart';
 export 'ui/widget/requests_pie_chart.dart';
 export 'ui/widget/top_products.dart';
 export 'ui/widget/app_bar.dart';
+export 'data/data_provider/product_data_provider.dart';
+export 'data/model/product_requests.dart';
+export 'data/repository/product_repository.dart';
+export 'bloc/products_bloc/products_bloc.dart';

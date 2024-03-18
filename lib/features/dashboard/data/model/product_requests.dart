@@ -20,10 +20,10 @@ class ProductRequests{
         productCategoryType: productCategoryType ?? this.productCategoryType,
       );
 
-  factory ProductRequests.fromJson(Map<String, dynamic> json) => ProductRequests(
-    id: json["id"],
-    productName: json["product_name"],
-    productCategoryType: json["product_category_type"],
+  factory ProductRequests.fromJson(Map<Object, Object> json) => ProductRequests(
+    id: "${json["id"]}",
+    productName: "${json["product_name"]}",
+    productCategoryType: "${json["product_category_type"]}",
   );
 
   Map<String, dynamic> toJson() => {

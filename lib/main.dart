@@ -62,6 +62,12 @@ class DentsuApp extends StatelessWidget {
                   quotesDataProvider: QuotesDataProvider(
                       database: FirebaseDatabase.instance
                   )))),
+      BlocProvider(
+          create: (_) => ProductsBloc(
+              productRepository: ProductRepository(
+                  productDataProvider: ProductDataProvider(
+                      database: FirebaseDatabase.instance
+                  )))),
     ], child: const DentsuAppView());
   }
 }
