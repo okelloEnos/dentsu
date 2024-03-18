@@ -43,34 +43,50 @@ class _LogInScreenState extends State<LogInScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                          onTap: () => Navigator.pop(context, true),
-                          child: Container(
-                            padding: const EdgeInsets.only(
-                                left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
-                            decoration: BoxDecoration(
-                                color: theme.colorScheme.error,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(5.0))),
-                            child: Center(
-                              child: Text('Yes',
-                                  style: theme.textTheme.displayMedium),
-                            ),
-                          )),
-                      GestureDetector(
-                          onTap: () => Navigator.pop(context, false),
-                          child: Container(
-                            padding: const EdgeInsets.only(
-                                left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
-                            decoration: BoxDecoration(
-                                color: theme.colorScheme.primary,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(5.0))),
-                            child: Center(
-                              child: Text('No',
-                                  style: theme.textTheme.displayMedium),
-                            ),
-                          ))
+                      Expanded(
+                        child: GestureDetector(
+                            onTap: () => context.pop(true),
+                            child: Container(
+                              padding: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
+                              decoration: BoxDecoration(
+                                  color: theme.colorScheme.error,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5.0))),
+                              child: Center(
+                                child: CustomTextWidget(
+                                    text: "Yes",
+                                  color: theme.colorScheme.onError,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w700,
+
+                                ),
+                              ),
+                            )),
+                      ),
+                      const SizedBox(
+                        width: 10.0,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                            onTap: () => context.pop(false),
+                            child: Container(
+                              padding: const EdgeInsets.only(
+                                  left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
+                              decoration: BoxDecoration(
+                                  color: theme.colorScheme.secondary,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5.0))),
+                              child: Center(
+                                child: CustomTextWidget(
+                                  text: "No",
+                                  color: theme.colorScheme.onSecondary,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            )),
+                      )
                     ],
                   ),
                 ),
