@@ -11,3 +11,8 @@ export 'ui/widgets/payment_section.dart';
 export 'ui/widgets/benefit_section.dart';
 export 'ui/widgets/custom_benefit_switch.dart';
 export 'ui/widgets/payment_mode.dart';
+export 'bloc/quotes_bloc.dart';
+export 'data/repository/quotes_repository.dart';
+export 'data/data_provider/quotes_data_provider.dart';
+export 'bloc/benefits_cubit.dart';
+export 'data/model/benefits.dart';

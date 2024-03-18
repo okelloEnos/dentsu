@@ -84,7 +84,7 @@ class _ViewQuoteScreenState extends State<ViewQuoteScreen> with SingleTickerProv
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 10.0),
-                        child: Benefits(),
+                        child: BenefitsWidget(),
                       ),
                     ],
                   ),

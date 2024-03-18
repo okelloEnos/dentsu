@@ -20,9 +20,9 @@ class Benefits{
         benefitCharges: benefitCharges ?? this.benefitCharges,
       );
 
-  factory Benefits.fromJson(Map<String, dynamic> json) => Benefits(
-    id: json["id"],
-    benefitName: json["benefit_name"],
-    benefitCharges: json["benefit_charges"],
+  factory Benefits.fromJson(Map<Object, Object> json) => Benefits(
+    id: "${json["id"]}",
+    benefitName: "${json["benefit_name"]}",
+    benefitCharges: "${json["benefit_charges"]}",
   );
 }

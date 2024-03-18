@@ -4,12 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'features/log_in/login_barrel.dart';
 
 final dio = Dio(BaseOptions(
   baseUrl: baseUrl,
@@ -45,6 +43,24 @@ class DentsuApp extends StatelessWidget {
               profileRepository: ProfileRepository(
                   profileDataProvider: ProfileDataProvider(
                       firebaseDatabase: FirebaseDatabase.instance
+                  )))),
+      BlocProvider(
+          create: (_) => LeadsBloc(
+              leadsRepository: LeadsRepository(
+                  leadsDataProvider: LeadsDataProvider(
+                      database: FirebaseDatabase.instance
+                  )))),
+      BlocProvider(
+          create: (_) => QuotesBloc(
+              quotesRepository: QuotesRepository(
+                  quotesDataProvider: QuotesDataProvider(
+                      database: FirebaseDatabase.instance
+                  )))),
+      BlocProvider(
+          create: (_) => BenefitsCubit(
+              quotesRepository: QuotesRepository(
+                  quotesDataProvider: QuotesDataProvider(
+                      database: FirebaseDatabase.instance
                   )))),
     ], child: const DentsuAppView());
   }

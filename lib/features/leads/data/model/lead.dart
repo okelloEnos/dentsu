@@ -64,20 +64,37 @@ class Lead{
         recordingAgentName: recordingAgentName ?? this.recordingAgentName,
       );
 
-  factory Lead.fromJson(Map<String, dynamic> json) => Lead(
-    id: json["id"],
-    firstName: json["first_name"],
-    middleName: json["middle_name"],
-    lastName: json["last_name"],
-    location: json["location"],
-    leadCreatedDate: json["lead_created_date"],
-    leadContactedDate: json["lead_contacted_date"],
-    nextAppointmentDate: json["next_appointment_date"],
-    leadSource: json["lead_source"],
-    productRequested: json["product_requested"],
-    productSold: json["product_sold"],
-    leadStatus: json["lead_status"],
-    leadCloseReason: json["lead_close_reason"],
-    recordingAgentName: json["recording_agent_name"],
+  factory Lead.fromJson(Map<Object, Object> json) => Lead(
+    id: "${json["id"]}",
+    firstName: "${json["first_name"]}",
+    middleName: "${json["middle_name"]}",
+    lastName: "${json["last_name"]}",
+    location: "${json["location"]}",
+    leadCreatedDate: "${json["lead_created_date"]}",
+    leadContactedDate: "${json["lead_contacted_date"]}",
+    nextAppointmentDate: "${json["next_appointment_date"]}",
+    leadSource: "${json["lead_source"]}",
+    productRequested: "${json["product_requested"]}",
+    productSold: "${json["product_sold"]}",
+    leadStatus: "${json["lead_status"]}",
+    leadCloseReason: "${json["lead_close_reason"]}",
+    recordingAgentName: "${json["recording_agent_name"]}",
   );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "first_name": firstName,
+    "middle_name": middleName,
+    "last_name": lastName,
+    "location": location,
+    "lead_created_date": leadCreatedDate,
+    "lead_contacted_date": leadContactedDate,
+    "next_appointment_date": nextAppointmentDate,
+    "lead_source": leadSource,
+    "product_requested": productRequested,
+    "product_sold": productSold,
+    "lead_status": leadStatus,
+    "lead_close_reason": leadCloseReason,
+    "recording_agent_name": recordingAgentName,
+  };
 }

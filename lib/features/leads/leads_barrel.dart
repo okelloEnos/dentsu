@@ -7,3 +7,6 @@ export 'ui/widgets/lead_detail_card.dart';
 export 'ui/widgets/lead_data_widget.dart';
 export 'ui/widgets/assigned_lead_section.dart';
 export 'ui/widgets/lead_detail_section.dart';
+export 'bloc/leads_bloc.dart';
+export 'data/repository/leads_repository.dart';
+export 'data/data_provider/leads_data_provider.dart';

@@ -69,22 +69,22 @@ class Quote{
         leadBenefit: leadBenefit ?? this.leadBenefit,
       );
 
-  factory Quote.fromJson(Map<String, dynamic> json) => Quote(
-    id: json["id"],
-    clientFirstName: json["client_first_name"],
-    clientMiddleName: json["client_middle_name"],
-    clientLastName: json["client_last_name"],
-    originatingLeadSource: json["originating_lead_source"],
-    owningBusinessUnit: json["owning_business_unit"],
-    leadId: json["lead_id"],
-    source: json["source"],
-    capturingUser: json["capturing_user"],
-    ageBracket: json["age_bracket"],
-    inPatientCoverLimit: json["in_patient_cover_limit"],
-    spouseCovered: json["spouse_covered"],
-    spouseAgeBracket: json["spouse_age_bracket"],
-    numberOfChildren: json["number_of_children"],
-    leadBenefit: LeadBenefit.fromJson(json["lead_benefit"]),
+  factory Quote.fromJson(Map<Object, Object> json) => Quote(
+    id: "${json["id"]}",
+    clientFirstName: "${json["client_first_name"]}",
+    clientMiddleName: "${json["client_middle_name"]}",
+    clientLastName: "${json["client_last_name"]}",
+    originatingLeadSource: "${json["originating_lead_source"]}",
+    owningBusinessUnit: "${json["owning_business_unit"]}",
+    leadId: "${json["lead_id"]}",
+    source: "${json["source"]}",
+    capturingUser: "${json["capturing_user"]}",
+    ageBracket: "${json["age_bracket"]}",
+    inPatientCoverLimit: "${json["in_patient_cover_limit"]}",
+    spouseCovered: "${json["spouse_covered"]}",
+    spouseAgeBracket: "${json["spouse_age_bracket"]}",
+    numberOfChildren: "${json["number_of_children"]}",
+    leadBenefit: LeadBenefit.fromJson(json["lead_benefit"] as Map<Object, Object>),
   );
 
   Map<String, dynamic> toJson() => {
@@ -158,17 +158,17 @@ class LeadBenefit{
         amrefEvacuation: amrefEvacuation ?? this.amrefEvacuation,
       );
 
-  factory LeadBenefit.fromJson(Map<String, dynamic> json) => LeadBenefit(
-    inPatient: json["in_patient"],
-    outPatient: json["out_patient"],
-    coPayment: json["co_payment"],
-    dental: json["dental"],
-    optical: json["optical"],
-    maternity: json["maternity"],
-    lastExpense: json["last_expense"],
-    personalAccident: json["personal_accident"],
-    covidCover: json["covid_cover"],
-    amrefEvacuation: json["amref_evacuation"],
+  factory LeadBenefit.fromJson(Map<Object, Object> json) => LeadBenefit(
+    inPatient: "${json["in_patient"]}",
+    outPatient: "${json["out_patient"]}",
+    coPayment: "${json["co_payment"]}",
+    dental: "${json["dental"]}",
+    optical: "${json["optical"]}",
+    maternity: "${json["maternity"]}",
+    lastExpense: "${json["last_expense"]}",
+    personalAccident: "${json["personal_accident"]}",
+    covidCover: "${json["covid_cover"]}",
+    amrefEvacuation: "${json["amref_evacuation"]}",
   );
 
   Map<String, dynamic> toJson() => {

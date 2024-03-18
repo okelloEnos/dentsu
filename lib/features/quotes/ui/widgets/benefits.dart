@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../features_barrel.dart';
 
-class Benefits extends StatelessWidget {
-  const Benefits({Key? key}) : super(key: key);
+class BenefitsWidget extends StatelessWidget {
+  const BenefitsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
