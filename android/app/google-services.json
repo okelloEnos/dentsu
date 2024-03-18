@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "617338438378",
+    "firebase_url": "https://dentsu-75f68-default-rtdb.firebaseio.com",
+    "project_id": "dentsu-75f68",
+    "storage_bucket": "dentsu-75f68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617338438378:android:99396e5c8276227b114d93",
+        "android_client_info": {
+          "package_name": "com.okelloSoftwarez.dentsu_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj0J4DUciNuRR830MW0xvwo1gnyMCCr9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

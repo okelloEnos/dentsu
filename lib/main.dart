@@ -1,4 +1,8 @@
+import 'package:dentsu_test/features/features_barrel.dart';
+import 'package:dentsu_test/firebase_options.dart';
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +22,10 @@ final dio = Dio(BaseOptions(
 
 late SharedPreferences sharedPreferences;
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  sharedPreferences = await SharedPreferences.getInstance();
 
   runApp(const DentsuApp());
 }
@@ -34,6 +40,12 @@ class DentsuApp extends StatelessWidget {
           create: (_) => LogInBloc(
               logInRepository: LogInRepository(
                   logInRemoteDataProvider: LogInRemoteDataProvider(dio: dio)))),
+      BlocProvider(
+          create: (_) => ProfileBloc(
+              profileRepository: ProfileRepository(
+                  profileDataProvider: ProfileDataProvider(
+                      firebaseDatabase: FirebaseDatabase.instance
+                  )))),
     ], child: const DentsuAppView());
   }
 }

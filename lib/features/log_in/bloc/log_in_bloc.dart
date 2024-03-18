@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../util/util_barrel.dart';
-import '../data/repository/log_in_repository.dart';
 import '../login_barrel.dart';
 
 part 'log_in_event.dart';
@@ -17,16 +16,16 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
       : _logInRepository = logInRepository,
         super(LogInInitial()) {
     on<LogInPressedEvent>(_userLogIn);
-    on<UpdatePinPressedEvent>(_updatePin);
+    on<LogOutPressedEvent>(_userLogout);
   }
 
   // user log in
   void _userLogIn(LogInPressedEvent event, Emitter<LogInState> emit) async {
     try {
       emit(LogInLoading());
-      final Profile userProfile = await _logInRepository.logIn(
-          phoneNumber: event.phoneNumber, pin: event.pin);
-      emit(LogInSuccess(userProfile: userProfile));
+      final String userId = await _logInRepository.logIn(
+          email: event.email, password: event.password);
+      emit(LogInSuccess(userId: userId));
     } on DioException catch (e) {
       emit(
           LogInFailure(errorMessage: DioExceptions.fromDioError(e).toString()));
@@ -35,11 +34,11 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
     }
   }
 
-  // update pin
-  void _updatePin(UpdatePinPressedEvent event, Emitter<LogInState> emit) async{
+  // user log out
+  void _userLogout(LogOutPressedEvent event, Emitter<LogInState> emit) async{
     try{
       emit(UpdatePinLoading());
-      var pinUpdateResponse = await _logInRepository.updatePin(oldPin: event.oldPin, newPin: event.newPin);
+       await _logInRepository.logOut();
       emit(UpdatePinSuccess());
     } on DioException catch (e) {
       emit(
@@ -49,15 +48,15 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
     }
   }
 
-  void logOut() async{
-    try{
-      await _logInRepository.logOut();
-    }
-    on DioException catch(e){
-      rethrow;
-    }
-    catch(e){
-      rethrow;
-    }
-  }
+  // void logOut() async{
+  //   try{
+  //     await _logInRepository.logOut();
+  //   }
+  //   on DioException catch(e){
+  //     rethrow;
+  //   }
+  //   catch(e){
+  //     rethrow;
+  //   }
+  // }
 }

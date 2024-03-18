@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType? keyboardType;
-  final Color? color;
+  final Color? filledColor;
+  final Color? textColor;
+  
   final double? fontSize;
   final String hintText;
   final double? hintFontSize;
@@ -23,7 +25,7 @@ class CustomTextField extends StatelessWidget {
       {Key? key,
       required this.controller,
       this.keyboardType,
-      this.color,
+      this.filledColor,
       this.fontSize,
       required this.hintText,
       this.hintFontSize,
@@ -36,7 +38,8 @@ class CustomTextField extends StatelessWidget {
       this.minLines,
         this.validator,
         this.onChanged,
-        this.obscureText
+        this.obscureText,
+        this.textColor
       })
       : super(key: key);
 
@@ -50,11 +53,11 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       controller: controller,
       keyboardType: keyboardType ?? TextInputType.text,
-      cursorColor: color ?? theme.colorScheme.primary,
+      cursorColor: filledColor ?? theme.colorScheme.primary,
       minLines: minLines ?? 1,
       maxLines: maxLines ?? 1,
       style: TextStyle(
-          color: color ?? theme.colorScheme.primary,
+          color: textColor ?? theme.colorScheme.onPrimary,
           fontWeight: FontWeight.w400,
           fontSize: fontSize ?? 16.0,
           fontFamily: 'Dm Sans'),
@@ -68,7 +71,7 @@ class CustomTextField extends StatelessWidget {
           child: suffixIcon,
         ) : null,
         filled: true,
-        fillColor: color ?? theme.colorScheme.primary,
+        fillColor: filledColor ?? theme.colorScheme.primary,
         hintText: hintText,
         hintStyle: TextStyle(
             color: theme.hintColor,

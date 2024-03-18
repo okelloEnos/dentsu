@@ -5,21 +5,18 @@ abstract class LogInEvent extends Equatable {
 }
 
 class LogInPressedEvent extends LogInEvent {
-  final String phoneNumber;
-  final String pin;
+  final String email;
+  final String password;
 
-  const LogInPressedEvent({required this.phoneNumber, required this.pin});
+  const LogInPressedEvent({required this.email, required this.password});
 
   @override
-  List<Object> get props => [phoneNumber, pin];
+  List<Object> get props => [email, password];
 }
 
-class UpdatePinPressedEvent extends LogInEvent {
-  final String oldPin;
-  final String newPin;
-
-  const UpdatePinPressedEvent({required this.oldPin, required this.newPin});
+class LogOutPressedEvent extends LogInEvent {
+  const LogOutPressedEvent();
 
   @override
-  List<Object> get props => [oldPin, newPin];
+  List<Object> get props => [];
 }

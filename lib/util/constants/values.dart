@@ -24,3 +24,5 @@ const String commissionTable = "Commission";
 // const String firstTimeCountiesFetch = "first_time_counties_fetch";
 // const String firstTimeSubCountiesFetch = "first_time_sub_counties_fetch";
 // const String firstTimeWardFetch = "first_time_ward_fetch";
+
+const String keepMeLoggedInValue = "keep_me_logged_in";

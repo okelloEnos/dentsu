@@ -1,3 +1,6 @@
+import 'package:dentsu_test/features/features_barrel.dart';
+import 'package:dentsu_test/main.dart';
+import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +17,16 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool hidePassword = true;
   bool keepMeLoggedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    keepMeLoggedIn = sharedPreferences.getBool(keepMeLoggedInValue) ?? false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,18 +57,20 @@ class _LogInScreenState extends State<LogInScreen> {
                             onTap: () => context.pop(true),
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
+                                  left: 20.0,
+                                  right: 20.0,
+                                  top: 5.0,
+                                  bottom: 5.0),
                               decoration: BoxDecoration(
                                   color: theme.colorScheme.error,
                                   borderRadius: const BorderRadius.all(
                                       Radius.circular(5.0))),
                               child: Center(
                                 child: CustomTextWidget(
-                                    text: "Yes",
+                                  text: "Yes",
                                   color: theme.colorScheme.onError,
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w700,
-
                                 ),
                               ),
                             )),
@@ -72,7 +83,10 @@ class _LogInScreenState extends State<LogInScreen> {
                             onTap: () => context.pop(false),
                             child: Container(
                               padding: const EdgeInsets.only(
-                                  left: 20.0, right: 20.0, top: 5.0, bottom: 5.0),
+                                  left: 20.0,
+                                  right: 20.0,
+                                  top: 5.0,
+                                  bottom: 5.0),
                               decoration: BoxDecoration(
                                   color: theme.colorScheme.secondary,
                                   borderRadius: const BorderRadius.all(
@@ -113,26 +127,34 @@ class _LogInScreenState extends State<LogInScreen> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   const Spacer(),
-                  Center(child: Image.asset("assets/images/logo.png", height: 63, width: 98.67)),
+                  Center(
+                      child: Image.asset("assets/images/logo.png",
+                          height: 63, width: 98.67)),
                   const SizedBox(
                     height: 40.0,
                   ),
-                          Center(
-                            child: CustomTextWidget(text: "Welcome to Dentsu LMS",
-                              fontSize: 28.0,
-                              color: theme.colorScheme.onPrimary,
-                              fontFamily: "Dm Sans",
-                              fontWeight: FontWeight.w700,),
-                          ),
+                  Center(
+                    child: CustomTextWidget(
+                      text: "Welcome to Dentsu LMS",
+                      fontSize: 28.0,
+                      color: theme.colorScheme.onPrimary,
+                      fontFamily: "Dm Sans",
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                   const SizedBox(
                     height: 20.0,
                   ),
                   Center(
-                    child: CustomTextWidget(text:"A tool that leverage's the power of data and artificial intelligence to drive digital transformation at scale", textAlign: TextAlign.center,
-                        color: theme.colorScheme.onPrimary,
-                        fontWeight: FontWeight.w400,),
+                    child: CustomTextWidget(
+                      text:
+                          "A tool that leverage's the power of data and artificial intelligence to drive digital transformation at scale",
+                      textAlign: TextAlign.center,
+                      color: theme.colorScheme.onPrimary,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                   Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 50.0, bottom: 5.0),
                     child: CustomTextWidget(
                       text: "Username",
@@ -141,10 +163,11 @@ class _LogInScreenState extends State<LogInScreen> {
                     ),
                   ),
                   CustomTextField(
-                    controller: phoneNumberController,
-                    keyboardType: TextInputType.phone,
+                    controller: emailController,
+                    textColor: theme.colorScheme.primary,
+                    keyboardType: TextInputType.emailAddress,
                     hintText: "Enter your email or Username",
-                    color: theme.colorScheme.onPrimary,
+                    filledColor: theme.colorScheme.onPrimary,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 5.0),
@@ -157,7 +180,8 @@ class _LogInScreenState extends State<LogInScreen> {
                   CustomTextField(
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
-                    color: theme.colorScheme.onPrimary,
+                    filledColor: theme.colorScheme.onPrimary,
+                    textColor: theme.colorScheme.primary,
                     hintText: "Enter your Password",
                     obscureText: hidePassword,
                     suffixIcon: GestureDetector(
@@ -168,13 +192,13 @@ class _LogInScreenState extends State<LogInScreen> {
                         },
                         child: hidePassword
                             ? const Icon(
-                          Icons.visibility_off,
-                          color: Colors.grey,
-                        )
+                                Icons.visibility_off,
+                                color: Colors.grey,
+                              )
                             : const Icon(
-                          Icons.visibility,
-                          color: Colors.grey,
-                        )),
+                                Icons.visibility,
+                                color: Colors.grey,
+                              )),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0, bottom: 60.0),
@@ -189,10 +213,18 @@ class _LogInScreenState extends State<LogInScreen> {
                               keepMeLoggedIn = !keepMeLoggedIn;
                             });
                           },
-                          child: keepMeLoggedIn ? Image.asset("assets/images/marked_checkbox.png", height: 24, width: 24,) : Icon(Icons.check_box_outline_blank,
-                              color: theme.colorScheme.onPrimary),
+                          child: keepMeLoggedIn
+                              ? Image.asset(
+                                  "assets/images/marked_checkbox.png",
+                                  height: 24,
+                                  width: 24,
+                                )
+                              : Icon(Icons.check_box_outline_blank,
+                                  color: theme.colorScheme.onPrimary),
                         ),
-                        const SizedBox(width: 6.0,),
+                        const SizedBox(
+                          width: 6.0,
+                        ),
                         CustomTextWidget(
                           text: "Keep me logged in",
                           color: theme.colorScheme.onPrimary,
@@ -214,22 +246,48 @@ class _LogInScreenState extends State<LogInScreen> {
                             radius: 90.0,
                             textFontSize: 16.0,
                             onPressed: () {
-                              context.goNamed('dashboard');
-                              // context.read<LogInBloc>().add(LogInPressedEvent(
-                              //     phoneNumber: phoneNumberController.text,
-                              //     pin: passwordController.text));
+                              final String email = emailController.text.trim();
+                              final String password =
+                                  passwordController.text.trim();
+
+                              if (email.isEmpty) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: CustomTextWidget(
+                                    text:
+                                        "Your email address is missing, add email address to continue.",
+                                    color: theme.colorScheme.onError,
+                                  ),
+                                  backgroundColor: theme.colorScheme.error,
+                                  duration: const Duration(seconds: 3),
+                                ));
+                              } else if (password.isEmpty) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: CustomTextWidget(
+                                    text:
+                                        "Your password is missing, add password to continue.",
+                                    color: theme.colorScheme.onError,
+                                  ),
+                                  backgroundColor: theme.colorScheme.error,
+                                  duration: const Duration(seconds: 3),
+                                ));
+                              } else {
+                                context.read<LogInBloc>().add(LogInPressedEvent(
+                                    email: emailController.text,
+                                    password: passwordController.text));
+                              }
                             });
                       }
                     },
                     listener: (context, state) {
                       if (state is LogInSuccess) {
-                        // context.read<ProfileBloc>().add(ProfileFromLogInEvent(profile: state.userProfile));
-                        // context.read<DashboardBloc>().add(FetchDashboardEvent());
-                        // context.read<LoadLeadBloc>().add(FetchMyLeadsEvent(isConnected: context.read<NetworkBloc>().state == NetworkStatus.on));
-                        // context.read<CommissionBloc>().add(FetchCommissionsEvent(
-                        //     isConnected: context.read<NetworkBloc>().state == NetworkStatus.on
-                        // ));
-                        // context.read<RenumerationCubit>().fetchRenumerations();
+                        // fetch user details
+                        context.read<ProfileBloc>().add(FetchProfileEvent(
+                            userId: state.userId));
+                        sharedPreferences.setBool(
+                            keepMeLoggedInValue, keepMeLoggedIn);
+
                         context.goNamed('dashboard');
                       } else if (state is LogInFailure) {
                         showErrorDialog(

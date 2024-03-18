@@ -15,12 +15,12 @@ class LogInLoading extends LogInState {
 }
 
 class LogInSuccess extends LogInState {
-  final Profile userProfile;
+  final String userId;
 
-  const LogInSuccess({required this.userProfile});
+  const LogInSuccess({required this.userId});
 
   @override
-  List<Object> get props => [userProfile];
+  List<Object> get props => [userId];
 }
 
 class LogInFailure extends LogInState {
