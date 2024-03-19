@@ -115,28 +115,7 @@ class DashboardNavigationControllerState extends State {
       },
       child: Scaffold(
         backgroundColor: theme.colorScheme.background,
-        appBar: AppBar(
-          title: Image.asset("assets/images/logo.png",
-            height: 40.0, width: 40.0, color: theme.colorScheme.onPrimary,),
-          actions: _selectedTab == 3 ? [] : [
-            Padding(
-              padding: const EdgeInsets.only(right: 10.0),
-              child: UserPhoto(userProfilePhoto: imageUrl, isOnline: true,),
-            ),
-            IconButton(
-              icon: Icon(Icons.search, color: theme.colorScheme.onPrimary, size: 30.0,),
-              onPressed: () {
-                // todo: Implement search
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.menu, color: theme.colorScheme.onPrimary, size: 30.0,),
-              onPressed: () {
-                // todo: Implement navigation drawer
-              },
-            ),
-          ],
-        ),
+        appBar: const CustomAppBar(),
         body: _pages[_selectedTab],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,

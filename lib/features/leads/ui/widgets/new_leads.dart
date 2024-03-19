@@ -31,11 +31,17 @@ class NewLeads extends StatelessWidget {
   builder: (context, state) {
     if(state is LeadsLoaded){
       final List<Lead> leads = state.leads;
-      return Stack(
+      return
+        leads.isEmpty ?  Center(child: CustomTextWidget(text: "No leads yet", fontSize: 16.0, fontWeight: FontWeight.w400, color: theme.hintColor,))
+:
+      Stack(
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width,
             child: PaginatedDataTable(
+              onPageChanged: (page){
+                print("Page: $page");
+              },
               rowsPerPage: leads.length < 10 ? leads.length : 10,
               header: const CustomTextWidget(text: ""),
               columns: <DataColumn>[
@@ -92,7 +98,9 @@ class NewLeads extends StatelessWidget {
       return Center(child: CustomTextWidget(text: state.errorMessage, fontSize: 16.0, fontWeight: FontWeight.w400, color: theme.colorScheme.error,));
     }
     else if(state is LeadsLoading){
-      return Center(child: CircularSpinProgress());
+      return Center(child: CircularSpinProgress(
+        spinColor: theme.colorScheme.secondary,
+      ));
     }
     else{
       return const SizedBox.shrink();

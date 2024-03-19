@@ -1,5 +1,6 @@
 import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common_widgets/common_widget_barrel.dart';
 import '../../../../util/constants/constants_barrel.dart';
@@ -29,7 +30,35 @@ class TotalLeadsStatCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30.0),
-            const Center(child: TotalLeadProgressBar(totalLeads: 100, contactedLeads: 70)),
+            Center(child: BlocBuilder<LeadsBloc, LeadsState>(
+  builder: (context, state) {
+    if(state is LeadsLoaded) {
+      final List<Lead> leads = state.leads;
+      double totalLeads = leads.length.toDouble();
+      double contactedLeads = leads.where((lead) =>
+      (lead.leadContactedDate != null && lead.leadContactedDate != "null" && lead.leadContactedDate!.isNotEmpty)
+      ).length.toDouble();
+      return TotalLeadProgressBar(totalLeads: totalLeads, contactedLeads: contactedLeads);
+    }
+    else if(state is LeadsLoading) {
+      return CircularSpinProgress(
+        spinColor: theme.colorScheme.secondary,
+      );
+    }
+    else if(state is LeadsFailure) {
+      return Center(
+        child: CustomTextWidget(
+          text: "Error loading leads",
+          fontSize: 16.0,
+          fontWeight: FontWeight.w400,
+          color: theme.hintColor,
+        ),
+      );
+    }
+    return const SizedBox.shrink();
+  },
+)),
+            const Spacer(),
             const SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,11 +83,39 @@ class TotalLeadsStatCard extends StatelessWidget {
                     color: theme.colorScheme.tertiary,
                     fontFamily: "DM Sans",
                   ), children: [
-                    TextSpan(text: "1.7K", style:
-                    TextStyle(     fontSize: 12.0,
-                      fontWeight: FontWeight.w700,
-                      color: theme.colorScheme.tertiary,
-                      fontFamily: "DM Sans",))
+                    WidgetSpan(child: BlocBuilder<LeadsBloc, LeadsState>(
+                      builder: (context, state) {
+                        if(state is LeadsLoaded) {
+                          final List<Lead> leads = state.leads;
+                          int contactedLeads = leads.where((lead) =>
+                          (lead.leadContactedDate != null && lead.leadContactedDate != "null" && lead.leadContactedDate!.isNotEmpty)
+                          ).length;
+                          return CustomTextWidget(
+                            text: "$contactedLeads",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w700,
+                            color: theme.colorScheme.tertiary,
+                          );
+                        }
+                        else if(state is LeadsLoading) {
+                          return CustomTextWidget(
+                            text: "...",
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w400,
+                            color: theme.hintColor,
+                          );
+                        }
+                        else if(state is LeadsFailure) {
+                          return CustomTextWidget(
+                            text: "",
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w400,
+                            color: theme.hintColor,
+                          );
+                        }
+                        return const SizedBox.shrink();
+                      },
+                    ))
                   ]))
                   ],
                 ),
@@ -83,11 +140,37 @@ class TotalLeadsStatCard extends StatelessWidget {
                       color: theme.colorScheme.tertiary,
                       fontFamily: "DM Sans",
                     ), children: [
-                      TextSpan(text: "2.73K", style:
-                      TextStyle(     fontSize: 12.0,
-                        fontWeight: FontWeight.w700,
-                        color: theme.colorScheme.tertiary,
-                        fontFamily: "DM Sans",))
+                      WidgetSpan(child: BlocBuilder<LeadsBloc, LeadsState>(
+                        builder: (context, state) {
+                          if(state is LeadsLoaded) {
+                            final List<Lead> leads = state.leads;
+                            int totalLeads = leads.length;
+                            return CustomTextWidget(
+                              text: "$totalLeads",
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w700,
+                              color: theme.colorScheme.tertiary,
+                            );
+                          }
+                          else if(state is LeadsLoading) {
+                            return CustomTextWidget(
+                              text: "...",
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              color: theme.hintColor,
+                            );
+                          }
+                          else if(state is LeadsFailure) {
+                            return CustomTextWidget(
+                              text: "",
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              color: theme.hintColor,
+                            );
+                          }
+                          return const SizedBox.shrink();
+                        },
+                      ))
                     ]))
                   ],
                 ),

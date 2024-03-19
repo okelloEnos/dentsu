@@ -108,7 +108,7 @@ class Quote{
     "spouse_age_bracket": spouseAgeBracket,
     "number_of_children": numberOfChildren,
     "lead_benefit": leadBenefit?.toJson(),
-    "children_covered": childrenCovered
+    "children_covered": childrenCovered,
   };
 
 
@@ -193,6 +193,7 @@ class LeadBenefit{
     "personal_accident": personalAccident,
     "covid_cover": covidCover,
     "amref_evacuation": amrefEvacuation,
+    "total_charges": totalCharges,
   };
 
 }

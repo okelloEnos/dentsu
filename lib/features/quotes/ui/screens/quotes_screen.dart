@@ -52,13 +52,18 @@ class QuotesScreen extends StatelessWidget {
               BlocBuilder<QuotesBloc, QuotesState>(
                 builder: (context, state) {
                   if(state is QuotesLoaded){
-                    return QuotesWidget(quotes: state.quotes);
+                    return
+                      state.quotes.isEmpty ?  Center(child: CustomTextWidget(text: "No Quotes yet", fontSize: 16.0, fontWeight: FontWeight.w400, color: theme.hintColor,))
+                      :
+                      QuotesWidget(quotes: state.quotes);
                   }
                   else if(state is QuotesFailure){
                     return Center(child: CustomTextWidget(text: state.errorMessage, fontSize: 16.0, fontWeight: FontWeight.w400, color: theme.colorScheme.error,));
                   }
                   else if(state is QuotesLoading){
-                    return Center(child: CircularSpinProgress());
+                    return Center(child: CircularSpinProgress(
+                      spinColor: theme.colorScheme.secondary,
+                    ));
                   }
                   else{
                     return const SizedBox.shrink();
