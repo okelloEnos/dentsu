@@ -2,7 +2,8 @@ import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
 
 class QuoteInformation extends StatelessWidget {
-  const QuoteInformation({Key? key}) : super(key: key);
+  final Quote quote;
+  const QuoteInformation({Key? key, required this.quote}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,50 +13,50 @@ class QuoteInformation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 10.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "First Name",
-            data: "Stacey",
+            data: "${quote.clientFirstName}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Middle Name",
-            data: "Nyawira",
+            data: "${quote.clientMiddleName}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Last Name",
-            data: "Waruguru",
+            data: "${quote.clientLastName}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Originating Lead Source",
-            data: "Sales Agent",
+            data: "${quote.originatingLeadSource}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Qoute ID",
-            data: "QUO-87867-V2",
+            data: "QUO-${quote.id}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Owning Business Unit",
-            data: "Kenya",
+            data: "${quote.owningBusinessUnit}",
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Lead ID",
-            data: "0",
+            data: "LD-${quote.leadId}",
           ),
           const SizedBox(height: 15.0),
           QuoteDataContent(
             title: "Source",
-            data: "Agent portal",
+            data: "${quote.source}",
             suffixIcon: Icon(Icons.keyboard_arrow_down_sharp, color: theme.colorScheme.tertiary.withOpacity(0.4), size: 20,),
           ),
           const SizedBox(height: 15.0),
-          const QuoteDataContent(
+          QuoteDataContent(
             title: "Capturing User",
-            data: "Jeremy Kibor",
+            data: "${quote.capturingUser}",
           ),
           const SizedBox(height: 10.0),
         ],

@@ -16,7 +16,7 @@ class Lead extends Equatable{
   final String? leadCloseReason;
   final String? recordingAgentName;
 
-  Lead({
+  const Lead({
     this.id,
     this.firstName,
     this.middleName,

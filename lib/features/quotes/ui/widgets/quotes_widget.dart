@@ -4,15 +4,16 @@ import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-final List<Quote> _quotes = [
-  Quote(clientFirstName: "John", clientMiddleName: "Sam", clientLastName: "Derrick",),
-  Quote(clientFirstName: "John1", clientMiddleName: "Sam1", clientLastName: "Derrick1",),
-  Quote(clientFirstName: "John2", clientMiddleName: "Sam2", clientLastName: "Derrick2",),
-  Quote(clientFirstName: "John3", clientMiddleName: "Sam3", clientLastName: "Derrick3",),
-];
+// final List<Quote> _quotes = [
+//   Quote(clientFirstName: "John", clientMiddleName: "Sam", clientLastName: "Derrick",),
+//   Quote(clientFirstName: "John1", clientMiddleName: "Sam1", clientLastName: "Derrick1",),
+//   Quote(clientFirstName: "John2", clientMiddleName: "Sam2", clientLastName: "Derrick2",),
+//   Quote(clientFirstName: "John3", clientMiddleName: "Sam3", clientLastName: "Derrick3",),
+// ];
 
 class QuotesWidget extends StatelessWidget {
-  const QuotesWidget({super.key});
+  final List<Quote> quotes;
+  const QuotesWidget({super.key, required this.quotes});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class QuotesWidget extends StatelessWidget {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: PaginatedDataTable(
-            rowsPerPage: _quotes.length < 10 ? _quotes.length : 10,
+            rowsPerPage: quotes.length < 10 ? quotes.length : 10,
             header: const CustomTextWidget(text: ""),
             columns: <DataColumn>[
               DataColumn(
@@ -35,8 +36,8 @@ class QuotesWidget extends StatelessWidget {
                 label: CustomTextWidget(text: "", fontSize: 14.0, fontWeight: FontWeight.w400, color: theme.colorScheme.tertiary,),
               ),
             ],
-            source: QuotesDataSource(quotes: _quotes, onRowTap: (quoteIndex){
-              context.go('/dashboard/view_quote');
+            source: QuotesDataSource(quotes: quotes, onRowTap: (quoteIndex){
+              context.go('/dashboard/view_quote', extra: quotes[quoteIndex]);
             }),
           ),
         ),

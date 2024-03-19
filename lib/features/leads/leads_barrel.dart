@@ -10,3 +10,4 @@ export 'ui/widgets/lead_detail_section.dart';
 export 'bloc/leads_bloc.dart';
 export 'data/repository/leads_repository.dart';
 export 'data/data_provider/leads_data_provider.dart';
+export 'ui/screens/edit_lead.dart';

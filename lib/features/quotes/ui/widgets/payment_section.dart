@@ -4,7 +4,8 @@ import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:flutter/material.dart';
 
 class PaymentSection extends StatefulWidget {
-  const PaymentSection({Key? key}) : super(key: key);
+  final Quote quote;
+  const PaymentSection({Key? key, required this.quote}) : super(key: key);
 
   @override
   State<PaymentSection> createState() => _PaymentSectionState();
@@ -55,7 +56,7 @@ fontSize: 15,
                   fontWeight: FontWeight.w500,
                 ),
                 CustomTextWidget(
-                    text: "KES ${thousandNumberFormat("131435")}",
+                    text: "KES ${thousandNumberFormat("${widget.quote.leadBenefit?.totalCharges}")}",
                   fontSize: 17,
                   fontWeight: FontWeight.w700,
                 ),

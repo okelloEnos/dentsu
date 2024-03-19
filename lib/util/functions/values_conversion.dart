@@ -28,7 +28,10 @@ String thousandNumberFormat(String? amountValue) {
   }
   else {
     amountString = amountValue;
+    // cleaning the string from Ksh, KES and commas
+    amountString = amountString.replaceAll("Ksh", "").replaceAll("Ksh.", "").replaceAll("KES", "").replaceAll(",", "").trim();
   }
+
   double? amount = double.tryParse(amountString);
   late String convertedAmount;
   var formatter = NumberFormat("###,###");

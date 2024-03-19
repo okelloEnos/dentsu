@@ -3,7 +3,8 @@ import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
 
 class ViewQuoteScreen extends StatefulWidget {
-  const ViewQuoteScreen({Key? key}) : super(key: key);
+  final Quote quote;
+  const ViewQuoteScreen({Key? key, required this.quote}) : super(key: key);
 
   @override
   State<ViewQuoteScreen> createState() => _ViewQuoteScreenState();
@@ -73,18 +74,24 @@ class _ViewQuoteScreenState extends State<ViewQuoteScreen> with SingleTickerProv
                   child: TabBarView(
                     controller: _tabController,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: QuoteInformation(),
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: QuoteInformation(
+                          quote: widget.quote,
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: SetUp(),
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: SetUp(
+                          quote: widget.quote,
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: BenefitsWidget(),
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: BenefitsWidget(
+                          quote: widget.quote,
+                        ),
                       ),
                     ],
                   ),

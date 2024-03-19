@@ -13,7 +13,7 @@ class LeadsBloc extends Bloc<LeadsEvent, LeadsState> {
   final LeadsRepository _leadsRepository;
   LeadsBloc({required LeadsRepository leadsRepository}) : _leadsRepository = leadsRepository, super(LeadsInitial()) {
     on<FetchAllLeadsEvent>(_onFetchAllLeadsEvent);
-    on<FetchLeadByIdEvent>(_onFetchLeadByIdEvent);
+    on<UpdateLeadEvent>(_onUpdateLeadEvent);
     on<CreateLeadEvent>(_onCreateLeadEvent);
   }
 
@@ -31,17 +31,17 @@ class LeadsBloc extends Bloc<LeadsEvent, LeadsState> {
     }
   }
 
-  void _onFetchLeadByIdEvent(FetchLeadByIdEvent event, Emitter<LeadsState> emit) async{
-    emit(LeadLoading());
+  void _onUpdateLeadEvent(UpdateLeadEvent event, Emitter<LeadsState> emit) async{
+    emit(UpdateLeadLoading());
     try{
-      final lead = await _leadsRepository.fetchLeadByIdRequest(id: event.id);
-      emit(LeadLoaded(lead: lead));
+      await _leadsRepository.updateLeadRequest(lead: event.lead);
+      emit(UpdateLeadLoaded());
     }
     on DioException catch(e){
-      emit(LeadFailure(errorMessage: e.message ?? 'An error occurred'));
+      emit(UpdateLeadFailure(errorMessage: e.message ?? 'An error occurred'));
     }
     catch(e){
-      emit(LeadFailure(errorMessage: e.toString()));
+      emit(UpdateLeadFailure(errorMessage: e.toString()));
     }
   }
 

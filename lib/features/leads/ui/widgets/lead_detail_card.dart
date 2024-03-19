@@ -1,10 +1,12 @@
 import 'package:dentsu_test/common_widgets/custom_text.dart';
 import 'package:dentsu_test/common_widgets/user_photo.dart';
 import 'package:dentsu_test/features/features_barrel.dart';
+import 'package:dentsu_test/util/functions/date_formatting.dart';
 import 'package:flutter/material.dart';
 
 class LeadDetailCard extends StatelessWidget {
-  const LeadDetailCard({Key? key}) : super(key: key);
+  final Lead lead;
+  const LeadDetailCard({Key? key, required this.lead}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +30,12 @@ class LeadDetailCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CustomTextWidget(text: "Joseph Kimeu Walter",
+                    CustomTextWidget(text: "${lead.firstName} ${lead.middleName} ${lead.lastName}",
                     fontSize: 18.0,
                       fontWeight: FontWeight.w700,
                       color: theme.colorScheme.tertiary,
                     ),
-                    // const SizedBox(height: 10.0),
-                    CustomTextWidget(text: "Nairobi, Kenya",
+                    CustomTextWidget(text: "${lead.location}",
                       fontSize: 14.0,
                       fontWeight: FontWeight.w500,
                       color: theme.colorScheme.tertiary.withOpacity(0.4),
@@ -44,19 +45,23 @@ class LeadDetailCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20.0),
-            const LeadDataWidget(
+            LeadDataWidget(
                 title: "Lead Created",
-                data: "10 August 2022",
+                data: lead.leadCreatedDate != null ? DateTimeUtils.getDayMonthYear(DateTime.parse(lead.leadCreatedDate!)) : "Is missing",
                 isShowBorder: true),
             const SizedBox(height: 10.0),
-            const LeadDataWidget(
+            LeadDataWidget(
                 title: "Lead Contacted",
-                data: "16 August 2022",
+                data: (lead.leadContactedDate != null
+                    && lead.leadContactedDate != "null" &&
+                    (lead.leadContactedDate?.isNotEmpty ?? false)) ? DateTimeUtils.getDayMonthYear(DateTime.parse(lead.leadContactedDate!)) : "Not Yet",
                 isShowBorder: true),
             const SizedBox(height: 10.0),
-            const LeadDataWidget(
+            LeadDataWidget(
                 title: "Next Appointment",
-                data: "29 August 2022",
+                data: (lead.leadContactedDate != null
+                    && lead.leadContactedDate != "null" &&
+                    (lead.leadContactedDate?.isNotEmpty ?? false)) ? DateTimeUtils.getDayMonthYear(DateTime.parse(lead.nextAppointmentDate!)) : "Not Scheduled",
                 isShowBorder: true),
           ],
         ),

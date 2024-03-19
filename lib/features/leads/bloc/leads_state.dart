@@ -32,24 +32,21 @@ class LeadsFailure extends LeadsState {
   List<Object> get props => [errorMessage];
 }
 
-class LeadLoading extends LeadsState {
+class UpdateLeadLoading extends LeadsState {
   @override
   List<Object> get props => [];
 }
 
-class LeadLoaded extends LeadsState {
-  final Lead lead;
-
-  const LeadLoaded({required this.lead});
+class UpdateLeadLoaded extends LeadsState {
 
   @override
-  List<Object> get props => [lead];
+  List<Object> get props => [];
 }
 
-class LeadFailure extends LeadsState {
+class UpdateLeadFailure extends LeadsState {
   final String errorMessage;
 
-  const LeadFailure({required this.errorMessage});
+  const UpdateLeadFailure({required this.errorMessage});
 
   @override
   List<Object> get props => [errorMessage];

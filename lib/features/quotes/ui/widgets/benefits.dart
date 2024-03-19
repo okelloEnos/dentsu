@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../features_barrel.dart';
 
 class BenefitsWidget extends StatelessWidget {
-  const BenefitsWidget({Key? key}) : super(key: key);
+  final Quote quote;
+  const BenefitsWidget({Key? key, required this.quote}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +17,17 @@ class BenefitsWidget extends StatelessWidget {
           const SizedBox(height: 10.0),
           QuoteDataContent(
             title: "Inpatient Cover Limit",
-            data: "KES ${thousandNumberFormat("1000000")}",
+            data: "KES ${thousandNumberFormat("${quote.inPatientCoverLimit}")}",
             suffixIcon: Icon(Icons.keyboard_arrow_down_sharp, color: theme.colorScheme.tertiary.withOpacity(0.4), size: 20,),
           ),
           const SizedBox(height: 10.0),
-          const BenefitSection(),
+          BenefitSection(
+            quote: quote,
+          ),
           const SizedBox(height: 40.0),
-          const PaymentSection(),
+          PaymentSection(
+            quote: quote,
+          ),
           const SizedBox(height: 10.0),
         ],
       ),

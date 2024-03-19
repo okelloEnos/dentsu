@@ -9,13 +9,13 @@ class FetchAllLeadsEvent extends LeadsEvent {
   List<Object> get props => [];
 }
 
-class FetchLeadByIdEvent extends LeadsEvent {
-  final String id;
+class UpdateLeadEvent extends LeadsEvent {
+  final Lead lead;
 
-  const FetchLeadByIdEvent({required this.id});
+  const UpdateLeadEvent({required this.lead});
 
   @override
-  List<Object> get props => [id];
+  List<Object> get props => [lead];
 }
 
 class CreateLeadEvent extends LeadsEvent {

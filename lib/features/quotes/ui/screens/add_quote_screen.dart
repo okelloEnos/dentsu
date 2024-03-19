@@ -441,6 +441,10 @@ class _AddQuoteScreenState extends State<AddQuoteScreen> {
                           textFontSize: 16.0,
                           radius: 90.0,
                           onPressed: () {
+                        double totalCharges = 0.0;
+                        for(Benefits benefit in selectedBenefits){
+                          totalCharges = totalCharges + (double.tryParse(benefit.benefitCharges ?? "0") ?? 0);
+                        }
                         List<String> benefitsStrings = [];
                         benefitsStrings = selectedBenefits.map((e) => e.benefitName ?? "").toList();
                             Quote newQuoteData = Quote(
@@ -469,6 +473,7 @@ class _AddQuoteScreenState extends State<AddQuoteScreen> {
     personalAccident: benefitsStrings.contains("PersonalAccident"),
     covidCover: benefitsStrings.contains("CovidCover"),
     amrefEvacuation: benefitsStrings.contains("AmrefEvacuation"),
+    totalCharges: "$totalCharges"
   )
 
 

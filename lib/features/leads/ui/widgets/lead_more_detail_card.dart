@@ -2,7 +2,8 @@ import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
 
 class LeadMoreDetailCard extends StatefulWidget {
-  const LeadMoreDetailCard({Key? key}) : super(key: key);
+  final Lead lead;
+  const LeadMoreDetailCard({Key? key, required this.lead}) : super(key: key);
 
   @override
   State<LeadMoreDetailCard> createState() => _LeadMoreDetailCardState();
@@ -70,12 +71,14 @@ class _LeadMoreDetailCardState extends State<LeadMoreDetailCard> with SingleTick
                   child: TabBarView(
                     controller: _tabController,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 10.0),
-                        child: LeadDetailSection(),
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: LeadDetailSection(
+                          lead: widget.lead,
+                        ),
                       ),
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 10.0),
                         child: AssignedLeadSection(),
                       ),

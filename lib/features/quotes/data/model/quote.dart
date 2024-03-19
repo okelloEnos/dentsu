@@ -125,6 +125,7 @@ class LeadBenefit{
   final bool? personalAccident;
   final bool? covidCover;
   final bool? amrefEvacuation;
+  final String? totalCharges;
 
   LeadBenefit({
     this.inPatient,
@@ -137,6 +138,7 @@ class LeadBenefit{
     this.personalAccident,
     this.covidCover,
     this.amrefEvacuation,
+    this.totalCharges
   });
 
   LeadBenefit copyWith({
@@ -150,6 +152,7 @@ class LeadBenefit{
     bool? personalAccident,
     bool? covidCover,
     bool? amrefEvacuation,
+    String? totalCharges
   }) =>
       LeadBenefit(
         inPatient: inPatient ?? this.inPatient,
@@ -162,6 +165,7 @@ class LeadBenefit{
         personalAccident: personalAccident ?? this.personalAccident,
         covidCover: covidCover ?? this.covidCover,
         amrefEvacuation: amrefEvacuation ?? this.amrefEvacuation,
+        totalCharges: totalCharges ?? this.totalCharges
       );
 
   factory LeadBenefit.fromJson(Map<Object?, Object?> json) => LeadBenefit(
@@ -174,7 +178,8 @@ class LeadBenefit{
     lastExpense: json["last_expense"] as bool,
     personalAccident: json["personal_accident"] as bool,
     covidCover: json["covid_cover"] as bool,
-    amrefEvacuation: json["amref_evacuation"] as bool
+    amrefEvacuation: json["amref_evacuation"] as bool,
+    totalCharges: "${json["total_charges"]}",
   );
 
   Map<String, dynamic> toJson() => {

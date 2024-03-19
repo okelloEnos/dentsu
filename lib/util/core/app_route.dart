@@ -94,7 +94,10 @@ final GoRouter appRouter = GoRouter(
               state: state,
               duration: pageTransitionValue,
               transitionType: PageTransitionType.rightToLeft,
-              child: const ViewLeadDetailsScreen()),
+              child: ViewLeadDetailsScreen(
+                lead: (state.extra as Map)["lead"] as Lead,
+                leadIndex: (state.extra as Map)["index"] as int,
+              )),
         ),
         GoRoute(
           path: 'add_lead',
@@ -107,6 +110,16 @@ final GoRouter appRouter = GoRouter(
               child: const AddNewLeadScreen()),
         ),
         GoRoute(
+          path: 'edit_lead',
+          name: 'edit_lead',
+          pageBuilder: (context, state) => pageBuilderWithTransition(
+              context: context,
+              state: state,
+              duration: pageTransitionValue,
+              transitionType: PageTransitionType.rightToLeft,
+              child: EditLeadScreen(lead: state.extra as Lead)),
+        ),
+        GoRoute(
           path: 'view_quote',
           name: 'view_quote',
           pageBuilder: (context, state) => pageBuilderWithTransition(
@@ -114,7 +127,7 @@ final GoRouter appRouter = GoRouter(
               state: state,
               duration: pageTransitionValue,
               transitionType: PageTransitionType.rightToLeft,
-              child: const ViewQuoteScreen()),
+              child: ViewQuoteScreen(quote: state.extra as Quote,)),
         ),
         GoRoute(
           path: 'add_quote',

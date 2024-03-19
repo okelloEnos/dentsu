@@ -63,7 +63,7 @@ class DateTimeUtils {
   }
 
   static String getDayMonthYear(DateTime dateTime) {
-    var formatter = DateFormat('dd MMM, yyyy');
+    var formatter = DateFormat('dd MMMM yyyy');
     return formatter.format(dateTime.toLocal());
   }
 

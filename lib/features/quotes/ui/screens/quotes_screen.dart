@@ -1,6 +1,7 @@
 import 'package:dentsu_test/common_widgets/common_widget_barrel.dart';
 import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class QuotesScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class QuotesScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomTextWidget(
-                    text: "Leads",
+                    text: "Quotes",
                     fontSize: 30.0,
                     fontWeight: FontWeight.w500,
                     color: theme.colorScheme.tertiary.withOpacity(0.8),
@@ -48,7 +49,22 @@ class QuotesScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20.0),
-              const QuotesWidget(),
+              BlocBuilder<QuotesBloc, QuotesState>(
+                builder: (context, state) {
+                  if(state is QuotesLoaded){
+                    return QuotesWidget(quotes: state.quotes);
+                  }
+                  else if(state is QuotesFailure){
+                    return Center(child: CustomTextWidget(text: state.errorMessage, fontSize: 16.0, fontWeight: FontWeight.w400, color: theme.colorScheme.error,));
+                  }
+                  else if(state is QuotesLoading){
+                    return Center(child: CircularSpinProgress());
+                  }
+                  else{
+                    return const SizedBox.shrink();
+                  }
+                },
+              )
             ],
           ),
         ),

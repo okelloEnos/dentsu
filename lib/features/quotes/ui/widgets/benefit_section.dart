@@ -3,7 +3,8 @@ import 'package:dentsu_test/features/features_barrel.dart';
 import 'package:flutter/material.dart';
 
 class BenefitSection extends StatelessWidget {
-  const BenefitSection({Key? key}) : super(key: key);
+  final Quote quote;
+  const BenefitSection({Key? key, required this.quote}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,81 +21,81 @@ class BenefitSection extends StatelessWidget {
               color: theme.colorScheme.tertiary,
             ),
             const SizedBox(height: 20.0),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Inpatient",
-              isProvided: true,
+              isProvided: quote.leadBenefit?.inPatient,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+             CustomBenefitSwitch(
               title: "Outpatient",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.outPatient,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "No Co-payment",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.coPayment,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Dental",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.dental,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+           CustomBenefitSwitch(
               title: "Optical",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.optical,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Maternity",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.maternity,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Last Expense",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.lastExpense,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Personal Accident",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.personalAccident,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Enhanced Covid 19 Cover",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.covidCover,
             ),
             Divider(
               color: Theme.of(context).colorScheme.tertiary.withOpacity(0.1),
               thickness: 1.0,
             ),
-            const CustomBenefitSwitch(
+            CustomBenefitSwitch(
               title: "Amref Evacuation",
-              isProvided: false,
+              isProvided: quote.leadBenefit?.amrefEvacuation,
             ),
           ],
         ),
