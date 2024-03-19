@@ -8,8 +8,28 @@ class LeadsDataProvider{
 
   // create a new lead
   Future<void> createLeadRequest({required Lead lead}) async {
-    var newLeadData = lead.toJson();
-    await _database.ref().child('leads').push().set(newLeadData);
+    DatabaseReference databaseReference = _database.ref();
+    DatabaseReference leadsDatabaseReference = databaseReference.child('leads');
+    var leadsChildDatabaseReference = leadsDatabaseReference.push();
+    String? leadId = leadsChildDatabaseReference.key;
+    if(leadId != null){
+      var newLeadData = lead.copyWith(id: leadId).toJson();
+      await leadsChildDatabaseReference.set(newLeadData);
+      //todo: make a request for lead request records *
+      DatabaseReference leadRequestDatabaseReference = databaseReference.child('lead_request');
+      var leadRequestChildDatabaseReference = leadRequestDatabaseReference.push();
+      String? leadRequestId = leadRequestChildDatabaseReference.key;
+      if(leadRequestId != null){
+        // ProductRequests product = ProductRequests(
+        //   id: productRequestId,
+        // );
+        // var newProductData = product.toJson();
+        // await productRequestChildDatabaseReference.set(newProductData);
+      }
+    }
+    else{
+      throw('Could not create a new lead');
+    }
   }
 
   // update a lead

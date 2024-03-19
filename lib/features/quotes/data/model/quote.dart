@@ -14,6 +14,7 @@ class Quote{
   final String? spouseCovered;
   final String? spouseAgeBracket;
   final String? numberOfChildren;
+  final String? childrenCovered;
   final LeadBenefit? leadBenefit;
 
   Quote({
@@ -32,6 +33,7 @@ class Quote{
     this.spouseAgeBracket,
     this.numberOfChildren,
     this.leadBenefit,
+    this.childrenCovered
   });
 
   Quote copyWith({
@@ -50,6 +52,7 @@ class Quote{
     String? spouseAgeBracket,
     String? numberOfChildren,
     LeadBenefit? leadBenefit,
+    String? childrenCovered
   }) =>
       Quote(
         id: id ?? this.id,
@@ -67,9 +70,10 @@ class Quote{
         spouseAgeBracket: spouseAgeBracket ?? this.spouseAgeBracket,
         numberOfChildren: numberOfChildren ?? this.numberOfChildren,
         leadBenefit: leadBenefit ?? this.leadBenefit,
+        childrenCovered: childrenCovered ?? this.childrenCovered
       );
 
-  factory Quote.fromJson(Map<Object, Object> json) => Quote(
+  factory Quote.fromJson(Map<Object?, Object?> json) => Quote(
     id: "${json["id"]}",
     clientFirstName: "${json["client_first_name"]}",
     clientMiddleName: "${json["client_middle_name"]}",
@@ -84,7 +88,8 @@ class Quote{
     spouseCovered: "${json["spouse_covered"]}",
     spouseAgeBracket: "${json["spouse_age_bracket"]}",
     numberOfChildren: "${json["number_of_children"]}",
-    leadBenefit: LeadBenefit.fromJson(json["lead_benefit"] as Map<Object, Object>),
+    childrenCovered: "${json["children_covered"]}",
+    leadBenefit: json["lead_benefit"] == null ? LeadBenefit() : LeadBenefit.fromJson(json["lead_benefit"] as Map<Object?, Object?>),
   );
 
   Map<String, dynamic> toJson() => {
@@ -103,22 +108,23 @@ class Quote{
     "spouse_age_bracket": spouseAgeBracket,
     "number_of_children": numberOfChildren,
     "lead_benefit": leadBenefit?.toJson(),
+    "children_covered": childrenCovered
   };
 
 
 }
 
 class LeadBenefit{
-  final String? inPatient;
-  final String? outPatient;
-  final String? coPayment;
-  final String? dental;
-  final String? optical;
-  final String? maternity;
-  final String? lastExpense;
-  final String? personalAccident;
-  final String? covidCover;
-  final String? amrefEvacuation;
+  final bool? inPatient;
+  final bool? outPatient;
+  final bool? coPayment;
+  final bool? dental;
+  final bool? optical;
+  final bool? maternity;
+  final bool? lastExpense;
+  final bool? personalAccident;
+  final bool? covidCover;
+  final bool? amrefEvacuation;
 
   LeadBenefit({
     this.inPatient,
@@ -134,16 +140,16 @@ class LeadBenefit{
   });
 
   LeadBenefit copyWith({
-    String? inPatient,
-    String? outPatient,
-    String? coPayment,
-    String? dental,
-    String? optical,
-    String? maternity,
-    String? lastExpense,
-    String? personalAccident,
-    String? covidCover,
-    String? amrefEvacuation,
+    bool? inPatient,
+    bool? outPatient,
+    bool? coPayment,
+    bool? dental,
+    bool? optical,
+    bool? maternity,
+    bool? lastExpense,
+    bool? personalAccident,
+    bool? covidCover,
+    bool? amrefEvacuation,
   }) =>
       LeadBenefit(
         inPatient: inPatient ?? this.inPatient,
@@ -158,17 +164,17 @@ class LeadBenefit{
         amrefEvacuation: amrefEvacuation ?? this.amrefEvacuation,
       );
 
-  factory LeadBenefit.fromJson(Map<Object, Object> json) => LeadBenefit(
-    inPatient: "${json["in_patient"]}",
-    outPatient: "${json["out_patient"]}",
-    coPayment: "${json["co_payment"]}",
-    dental: "${json["dental"]}",
-    optical: "${json["optical"]}",
-    maternity: "${json["maternity"]}",
-    lastExpense: "${json["last_expense"]}",
-    personalAccident: "${json["personal_accident"]}",
-    covidCover: "${json["covid_cover"]}",
-    amrefEvacuation: "${json["amref_evacuation"]}",
+  factory LeadBenefit.fromJson(Map<Object?, Object?> json) => LeadBenefit(
+    inPatient: json["in_patient"] as bool,
+    outPatient: json["out_patient"] as bool,
+    coPayment: json["co_payment"] as bool,
+    dental: json["dental"] as bool,
+    optical: json["optical"] as bool,
+    maternity: json["maternity"] as bool,
+    lastExpense: json["last_expense"] as bool,
+    personalAccident: json["personal_accident"] as bool,
+    covidCover: json["covid_cover"] as bool,
+    amrefEvacuation: json["amref_evacuation"] as bool
   );
 
   Map<String, dynamic> toJson() => {

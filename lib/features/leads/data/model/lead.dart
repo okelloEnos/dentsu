@@ -1,4 +1,6 @@
-class Lead{
+import 'package:equatable/equatable.dart';
+
+class Lead extends Equatable{
   final String? id;
   final String? firstName;
   final String? middleName;
@@ -64,7 +66,7 @@ class Lead{
         recordingAgentName: recordingAgentName ?? this.recordingAgentName,
       );
 
-  factory Lead.fromJson(Map<Object, Object> json) => Lead(
+  factory Lead.fromJson(Map<Object?, Object?> json) => Lead(
     id: "${json["id"]}",
     firstName: "${json["first_name"]}",
     middleName: "${json["middle_name"]}",
@@ -97,4 +99,22 @@ class Lead{
     "lead_close_reason": leadCloseReason,
     "recording_agent_name": recordingAgentName,
   };
+
+  @override
+  List<Object?> get props => [
+    id,
+    firstName,
+    middleName,
+    lastName,
+    location,
+    leadCreatedDate,
+    leadContactedDate,
+    nextAppointmentDate,
+    leadSource,
+    productRequested,
+    productSold,
+    leadStatus,
+    leadCloseReason,
+    recordingAgentName,
+  ];
 }

@@ -280,13 +280,15 @@ class _LogInScreenState extends State<LogInScreen> {
                             });
                       }
                     },
-                    listener: (context, state) {
+                    listener: (innerContext, state) {
                       if (state is LogInSuccess) {
                         // fetch user details
                         context.read<ProfileBloc>().add(FetchProfileEvent(
                             userId: state.userId));
                         sharedPreferences.setBool(
                             keepMeLoggedInValue, keepMeLoggedIn);
+                        context.read<LeadsBloc>().add(FetchAllLeadsEvent());
+                        context.read<QuotesBloc>().add(FetchAllQuotesEvent());
 
                         context.goNamed('dashboard');
                       } else if (state is LogInFailure) {

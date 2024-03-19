@@ -21,7 +21,7 @@ class QuotesRepository{
   Future<List<Quote>> fetchAllQuotesRequest() async{
     final allQuotesResponse = await _quotesDataProvider.fetchAllQuotesRequest();
     List<Quote> listOfQuotes = [];
-    listOfQuotes = List<Quote>.from(allQuotesResponse.map((quoteMap) => Quote.fromJson(quoteMap)));
+    listOfQuotes = List<Quote>.from(allQuotesResponse.values.map((quoteMap) => Quote.fromJson(quoteMap)));
     return listOfQuotes;
   }
 
@@ -32,9 +32,9 @@ class QuotesRepository{
   }
 
   Future<List<Benefits>> fetchAllBenefitsRequest() async{
-    final allBenefitsResponse = await _quotesDataProvider.fetchAllBenefitsRequest();
+    final  allBenefitsResponse = await _quotesDataProvider.fetchAllBenefitsRequest();
     List<Benefits> listOfBenefits = [];
-    listOfBenefits = List<Benefits>.from(allBenefitsResponse.map((benefitMap) => Benefits.fromJson(benefitMap)));
+    listOfBenefits = List<Benefits>.from(allBenefitsResponse.values.map((benefitMap) => Benefits.fromJson(benefitMap)));
     return listOfBenefits;
   }
 

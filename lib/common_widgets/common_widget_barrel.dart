@@ -12,3 +12,4 @@ export 'back_arrow_widget.dart';
 export 'custom_switch_widget.dart';
 export 'background_image.dart';
 export 'view_detail_container.dart';
+export 'drop_down_widget.dart';

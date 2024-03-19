@@ -89,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  choice:
+    dependency: "direct main"
+    description:
+      name: choice
+      sha256: "5e803d0258dc3571453d081bea8060d15e351a202165a649cae73a067448e617"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.1"
   cli_util:
     dependency: transitive
     description:

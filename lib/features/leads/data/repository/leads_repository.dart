@@ -21,7 +21,7 @@ class LeadsRepository{
   Future<List<Lead>> fetchAllLeadsRequest() async{
     final allLeadsResponse = await _leadsDataProvider.fetchAllLeadsRequest();
     List<Lead> listOfLeads = [];
-    listOfLeads = List<Lead>.from(allLeadsResponse.map((leadMap) => Lead.fromJson(leadMap)));
+    listOfLeads = List<Lead>.from(allLeadsResponse.values.map((leadMap) => Lead.fromJson(leadMap)));
     return listOfLeads;
   }
 

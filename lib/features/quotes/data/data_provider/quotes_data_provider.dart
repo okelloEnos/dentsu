@@ -8,9 +8,29 @@ class QuotesDataProvider{
 
   // create a new quote
   Future<void> createNewQuoteRequest({required Quote quote}) async {
-    var newQuoteData = quote.toJson();
-    await _database.ref().child('quotes').push().set(newQuoteData);
-    //todo: make a request for product records
+    DatabaseReference databaseReference = _database.ref();
+    DatabaseReference quotesDatabaseReference = databaseReference.child('quotes');
+    var quotesChildDatabaseReference = quotesDatabaseReference.push();
+    String? quoteId = quotesChildDatabaseReference.key;
+    if(quoteId != null){
+      var newQuoteData = quote.copyWith(id: quoteId).toJson();
+      await quotesChildDatabaseReference.set(newQuoteData);
+      //todo: make a request for product records
+      DatabaseReference productRequestDatabaseReference = databaseReference.child('product_request');
+      var productRequestChildDatabaseReference = productRequestDatabaseReference.push();
+      String? productRequestId = productRequestChildDatabaseReference.key;
+      if(productRequestId != null){
+        ProductRequests product = ProductRequests(
+          id: productRequestId,
+        );
+        var newProductData = product.toJson();
+        await productRequestChildDatabaseReference.set(newProductData);
+      }
+    }
+    else{
+      throw('Could not create a new quote');
+    }
+
   }
 
   // update quote
