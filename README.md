@@ -1,16 +1,9 @@
 # dentsu_test
 
-A new Flutter project.
+Dentsu (Lead and Quotes management platform).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Instructions
+1. Make sure you have installed Flutter SDK 3.13.9 and above.
+2. Then pull the codebase and open in your favourite IDE (Android Studi or Visual Studio).
+3. Am using Firebase Authentication so i have testing credentials for a succesful log in (email : enos@gmail.com, password: Okello@02).
+   
