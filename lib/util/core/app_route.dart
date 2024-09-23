@@ -1,3 +1,4 @@
+import 'package:dentsu_test/features/device_binding/creds_page.dart';
 import 'package:dentsu_test/features/leads/ui/screens/add_new_lead.dart';
 import 'package:dentsu_test/features/leads/ui/screens/view_lead_details.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,8 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/',
       name: '/',
-        builder: (context, state) => const SplashScreen(),
+        // builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const CredentialsPage(),
       routes: [
         GoRoute(
           path: 'login',

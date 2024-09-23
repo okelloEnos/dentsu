@@ -1,7 +1,7 @@
 import 'package:dentsu_test/features/features_barrel.dart';
-import 'package:dentsu_test/features/leads/data/data_provider/leads_data_provider.dart';
 
 class LeadsRepository{
+
   final LeadsDataProvider _leadsDataProvider;
 
   LeadsRepository({required LeadsDataProvider leadsDataProvider}) : _leadsDataProvider = leadsDataProvider;
