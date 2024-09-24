@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dentsu_test/common_widgets/common_widget_barrel.dart';
 import 'package:dentsu_test/common_widgets/user_photo.dart';
 import 'package:dentsu_test/features/features_barrel.dart';
@@ -7,14 +8,15 @@ import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:go_router/go_router.dart';
 
 class DashboardNavigationController extends StatefulWidget {
-  const DashboardNavigationController({Key? key}) : super(key: key);
+  final Map<String, String> info;
+  const DashboardNavigationController({Key? key, required this.info}) : super(key: key);
 
   @override
   DashboardNavigationControllerState createState() =>
       DashboardNavigationControllerState();
 }
 
-class DashboardNavigationControllerState extends State {
+class DashboardNavigationControllerState extends State<DashboardNavigationController> {
   int _selectedTab = 0;
 
   static const List _pages = [
@@ -28,6 +30,32 @@ class DashboardNavigationControllerState extends State {
     setState(() {
       _selectedTab = index;
     });
+  }
+
+  void listeningToCurrentDevice({required String username, required String deviceID}){
+    FirebaseFirestore.instance
+        .collection('deviceBindings')
+        .doc(username)
+        .snapshots()
+        .listen((snapshot) {
+      if (snapshot.exists) {
+        String? remoteDeviceId = snapshot.data()?['deviceId'];
+        if(remoteDeviceId != null && remoteDeviceId != ""){ {
+          if (remoteDeviceId != deviceID) {
+            appRouter.goNamed('login');
+          }
+        }
+        }}
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    String email = "${widget.info['email']}";
+    String deviceID = "${widget.info['device']}";
+    listeningToCurrentDevice(username: email, deviceID: deviceID);
   }
 
   @override

@@ -16,8 +16,8 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/',
       name: '/',
-        // builder: (context, state) => const SplashScreen(),
-        builder: (context, state) => const CredentialsPage(),
+        builder: (context, state) => const SplashScreen(),
+        // builder: (context, state) => const CredentialsPage(),
       routes: [
         GoRoute(
           path: 'login',
@@ -86,7 +86,7 @@ final GoRouter appRouter = GoRouter(
           state: state,
           duration: 1000,
           transitionType: PageTransitionType.bottomToTop,
-          child: const DashboardNavigationController()),
+          child: DashboardNavigationController(info: state.extra as Map<String, String>,)),
       routes: [
         GoRoute(
           path: 'view_lead',

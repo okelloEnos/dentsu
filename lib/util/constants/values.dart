@@ -1,6 +1,6 @@
 int pageTransitionValue = 500;
 
-const String baseUrl = "https://www.champion.pesakit.net/api/champions";
+// const String baseUrl = "https://www.champion.pesakit.net/api/champions";
 // 60 seconds
 const Duration sendTimeout = Duration(seconds: 60);
 const Duration receiveTimeout = Duration(seconds: 60);

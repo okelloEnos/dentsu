@@ -8,6 +8,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dentsu_test/util/util_barrel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'features/timer/otp_remote_data_source.dart';
+import 'features/timer/otp_repository.dart';
+import 'features/timer/otp_use_case.dart';
+import 'features/timer/timer_bloc.dart';
+import 'features/timer/timer_source.dart';
+
 
 final dio = Dio(BaseOptions(
   baseUrl: baseUrl,
@@ -68,6 +74,13 @@ class DentsuApp extends StatelessWidget {
                   productDataProvider: ProductDataProvider(
                       database: FirebaseDatabase.instance
                   )))),
+      BlocProvider(
+          create: (_) => TimerBloc(
+            ticker: Ticker(),
+            otpUseCase: OtpUseCase(otpRepository:
+            OtpRepositoryImpl(otpRemoteDataSource:
+            OtpRemoteDataSourceImpl(dio: Dio())))
+          )),
     ], child: const DentsuAppView());
   }
 }
